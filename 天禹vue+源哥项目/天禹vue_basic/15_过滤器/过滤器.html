@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>过滤器</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript" src="../js/moment.min.js"></script>
+	</head>
+	<body>
+		<!--
+				1. 理解过滤器
+							功能: 对要显示的数据进行特定格式化
+							注意: 不改变原数据, 而是产生新数据
+				2. 编码
+							1).定义过滤器
+										Vue.filter(过滤器名字, function(value[,arg1,arg2,...]){
+											// 进行一定的数据处理
+											return newValue
+										})
+							2).使用过滤器
+										<div>{{myData | filterName}}</div>
+										<div>{{myData | filterName(arg)}}</div>
+			-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2>显示格式化后的时间</h2>
+			<h3>{{time | dateFormater}}</h3>
+			<h3>{{time | dateFormater('YYYY-MM-DD HH:mm:ss')}}</h3>
+		</div>
+
+		<div id="root2">
+			<h2>显示格式化后的时间</h2>
+			<h3>{{time | dateFormater}}</h3>
+			<h3>{{time | dateFormater('YYYY-MM-DD HH:mm:ss')}}</h3>
+		</div>
+
+
+		<script type="text/javascript" >
+			//注册的过滤器
+			Vue.filter('dateFormater',function(value,str='YYYY-MM-DD'){
+				return moment(value).format(str)
+			})
+
+			new Vue({
+				el:'#root',
+				data:{
+					time:Date.now()
+				},
+			})
+
+			new Vue({
+				el:'#root2',
+				data:{
+					time:Date.now()
+				},
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>姓名案例_computed实现</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+				1.计算属性：要显示的数据不存在，要通过计算得来。
+				2.fullName函数底层用到的是对象setter和getter方法
+				3.执行的时机：
+						(1).初始显示会执行一次，得到初始值去显示。
+						(2).当依赖的数据发生改变时会被再次调用。
+				4.优势：与methods实现相比，内部有缓存机制，效率更高。
+				5.备注：计算属性是用于直接读取使用的，不要加()
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			姓：<input type="text" v-model="firstName"> <br/><br/>
+			名：<input type="text" v-model="lastName"><br/><br/>
+			<span>全名:{{fullName}}</span><br/><br/>
+			<span>全名:{{fullName}}</span><br/><br/>
+			全名: <input type="text" v-model="fullName">
+		</div>
+
+		<script type="text/javascript" >
+			const vm = new Vue({
+				el:'#root',
+				data:{
+					firstName:'张',
+					lastName:'三',
+				},
+				computed:{
+					/* 
+						1.fullName是谁在调用？---Vue
+						2.fullName什么时候调用？初次渲染会调用、当依赖的属性值发生变化
+					*/
+					//简写---相当与只指定了get，没有指定set
+					fullName(){ 
+						console.log('fullName')
+						return this.firstName + '-' + this.lastName
+					}
+					
+					//完整写法----set和get都指定了
+					/* fullName:{
+						set(value){ //fullName被修改时set被调用，set中的this是vm，set会收到修改的值
+							const arr = value.split('-')
+							this.firstName = arr[0]
+							this.lastName = arr[1]
+						},
+						get(){ //fullName被读取时get被调用，get中的this是vm
+							console.log('get')
+							return this.firstName + '-' + this.lastName
+						}
+					} */
+				}
+			})
+			
+			console.log(vm)
+		</script>
+	</body>
+</html>

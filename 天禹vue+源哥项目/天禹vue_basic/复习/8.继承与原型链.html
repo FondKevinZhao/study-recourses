@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script type="text/javascript" >
+
+			class Person {}
+			Person.prototype.b = 200
+
+			class Student extends Person{
+				name = 'tom'
+			}
+			Student.prototype.a = 100  //a想给s用
+
+			const s = new Student()
+			
+			console.log(s.b)
+		</script>
+	</body>
+</html>

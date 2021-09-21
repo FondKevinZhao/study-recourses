@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script type="text/javascript" >
+
+			//如下写法，一个改变，所有的data属性都会变
+			/* const obj = {
+				data:{
+					name:'tom'
+				}
+			}
+
+			const x = obj.data
+			x.name = 'jack'
+			console.log(x.name)
+
+			const y = obj.data
+			console.log(y.name) */
+
+			//如下写法互不影响
+			const obj = {
+				data(){
+					return {
+						name:'tom'
+					}
+				}
+			}
+
+			const x = obj.data()
+			x.name = 'jack'
+			console.log(x.name)
+
+			const y = obj.data()
+			console.log(y.name)
+		</script>
+	</body>
+</html>

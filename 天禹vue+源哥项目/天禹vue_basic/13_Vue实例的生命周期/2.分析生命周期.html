@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>分析生命周期</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2 id="h2">当前页面求和为：{{sum}}</h2>
+			<button @click="add" id="btn">点我+1</button>
+			<button @click="death">销毁</button>
+		</div>
+
+		<script type="text/javascript" >
+			//修改Vue的全局配置
+			Vue.config.productionTip = false //关闭生产提示
+
+			const vm = new Vue({
+				el:'#root',
+				data:{
+					sum:0
+				},
+				methods: {
+					add(){
+						console.log('你点了+按钮')
+						this.sum += 1
+					},
+					death(){
+						this.$destroy()
+					}
+				},
+				//vue实例初始化前
+				beforeCreate() {
+					console.log('--beforeCreate--')
+					// console.log(this.sum) //undefined
+					// console.log(this.add) //undefined
+				},
+				//vue实例初始化完毕
+				created() {
+					console.log('--created--')
+					// console.log(this.sum) // 0
+					// console.log(this.add) // function
+					// console.log(this)
+					// debugger;
+				},
+				//vue实例更新真实DOM之前(挂载前)
+				beforeMount() {
+					console.log('--beforeMount--')
+					// const btn = document.getElementById('btn')
+					// btn.innerText = '哈哈'
+					// const h2 = document.getElementById('h2')
+					// console.log(h2)
+					// debugger;
+				},
+				//vue实例更新完真实DOM了(挂载完毕)
+				mounted() {
+					console.log('--mounted--')
+					// const h2 = document.getElementById('h2')
+					// const btn = document.getElementById('btn')
+					// btn.innerText = '哈哈'
+					// console.log(h2)
+					// console.log(btn)
+				},
+				//vue实例将要更新页面
+				beforeUpdate() {
+					console.log('--beforeUpdate--')
+					// console.log(this.sum)
+					// debugger;
+				},
+				//vue实例完成更新页面
+				updated() {
+					console.log('--updated--')
+					// console.log(this.sum)
+					// debugger;
+				},
+				//vue实例销毁前
+				beforeDestroy() {
+					console.log('--beforeDestroy--')
+					// console.log(this.sum) //可以获取
+					// console.log(this.add) //可以获取
+				},
+				//vue实例销毁完毕
+				destroyed() {
+					console.log('--destroyed--')
+					console.log('我移除完毕了所有数据的监视，不会更新页面了')
+				},
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>data_methods_computed总结</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2>{{x}}</h2>
+			<h2>{{y()}}</h2>
+			<h2>{{z}}</h2>
+			<button @click="y">点我调用y方法</button> <br/><br/>
+			<button @click="y()">点我调用y方法</button> <br/><br/>
+			展示x的值：<input type="text" v-model="x">
+		</div>
+		
+		<script type="text/javascript" >
+			const vm = new Vue({
+				el:'#root', //指定vm为哪个容器服务
+				data:{ //驱动页面显示的数据都放在这里
+					x:100 //x最终会通过数据代理的方式放在vm身上
+				},
+				methods:{ //所有用到的函数都配置在这里
+					y(){ //y直接被放在vm身上
+						console.log('y被调用了')
+						return 200
+					}
+				},
+				computed:{
+					z:{ //z直接被放在vm身上了
+						set(value){ //z的值被改变时，set执行，set中的this是vm，set会收到修改的值
+							console.log('有人修改z了，修改的值为：',value)
+						},
+						get(){ //z的值被读取时，或z依赖的值发生变化时，get执行，get中的this是vm，前提是：页面中要用到z
+							console.log('get被调用了')
+							return this.x*1 +1
+						}
+					}
+				}
+			})
+
+			console.log(vm)
+		</script>
+	</body>
+</html>

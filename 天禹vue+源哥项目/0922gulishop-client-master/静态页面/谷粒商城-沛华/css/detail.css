@@ -1,0 +1,522 @@
+.outer .con {
+  width: 1200px;
+  margin: 15px auto 0;
+}
+.outer .con .conPoin {
+  padding: 9px 15px 9px 0;
+}
+.outer .con .conPoin > a + a:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #ccc;
+}
+.outer .con .mainCon {
+  overflow: hidden;
+  margin: 5px 0 15px;
+}
+.outer .con .mainCon .previewWrap {
+  float: left;
+  width: 400px;
+  position: relative;
+}
+.outer .con .mainCon .previewWrap .preview {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #DFDFDF;
+}
+.outer .con .mainCon .previewWrap .preview .jqzoom {
+  cursor: pointer;
+  width: 400px;
+  height: 400px;
+  position: relative;
+}
+.outer .con .mainCon .previewWrap .preview .jqzoom img {
+  width: 100%;
+}
+.outer .con .mainCon .previewWrap .preview .jqzoom .mask {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #ddd;
+}
+.outer .con .mainCon .previewWrap .preview .maxbox {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 420px;
+  top: 0px;
+  overflow: hidden;
+  z-index: 20;
+  border: 1px solid #ddd;
+}
+.outer .con .mainCon .previewWrap .preview .maxbox img {
+  width: 800px;
+  height: 800px;
+  display: block;
+}
+.outer .con .mainCon .previewWrap .specScroll {
+  margin-top: 5px;
+  width: 400px;
+  overflow: hidden;
+}
+.outer .con .mainCon .previewWrap .specScroll .prev,
+.outer .con .mainCon .previewWrap .specScroll .next {
+  text-align: center;
+  width: 10px;
+  height: 54px;
+  line-height: 54px;
+  border: 1px solid #CCC;
+  background: #EBEBEB;
+  cursor: pointer;
+}
+.outer .con .mainCon .previewWrap .specScroll .prev {
+  float: left;
+  margin-right: 4px;
+}
+.outer .con .mainCon .previewWrap .specScroll .next {
+  float: right;
+}
+.outer .con .mainCon .previewWrap .specScroll .items {
+  float: left;
+  position: relative;
+  width: 372px;
+  height: 56px;
+  overflow: hidden;
+}
+.outer .con .mainCon .previewWrap .specScroll .items .itemsCon {
+  position: absolute;
+  width: 9999px;
+  height: 56px;
+  left: 0;
+}
+.outer .con .mainCon .previewWrap .specScroll .items .itemsCon img {
+  float: left;
+  text-align: center;
+  border: 1px solid #CCC;
+  padding: 2px;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+.outer .con .mainCon .InfoWrap {
+  width: 700px;
+  float: right;
+}
+.outer .con .mainCon .InfoWrap .InfoName {
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 15px;
+}
+.outer .con .mainCon .InfoWrap .news {
+  color: #e12228;
+  margin-top: 15px;
+}
+.outer .con .mainCon .InfoWrap .priceArea {
+  background: #fee9eb;
+  padding: 7px;
+  margin: 13px 0;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea1 {
+  overflow: hidden;
+  line-height: 28px;
+  margin-top: 10px;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea1 .title {
+  float: left;
+  margin-right: 15px;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea1 .price {
+  float: left;
+  color: #c81623;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea1 .price i {
+  font-size: 16px;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea1 .price em {
+  font-size: 24px;
+  font-weight: 700;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea1 .price span {
+  font-size: 12px;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea1 .remark {
+  float: right;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea2 {
+  overflow: hidden;
+  line-height: 28px;
+  margin-top: 10px;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea2 .title {
+  margin-right: 15px;
+  float: left;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea2 .fixWidth {
+  width: 520px;
+  float: left;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea2 .fixWidth .red-bg {
+  background: #c81623;
+  color: #fff;
+  padding: 3px;
+}
+.outer .con .mainCon .InfoWrap .priceArea .priceArea2 .fixWidth .t-gray {
+  color: #999;
+}
+.outer .con .mainCon .InfoWrap .support {
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 5px;
+}
+.outer .con .mainCon .InfoWrap .support .supportArea {
+  overflow: hidden;
+  line-height: 28px;
+  margin-top: 10px;
+}
+.outer .con .mainCon .InfoWrap .support .supportArea .title {
+  margin-right: 15px;
+  float: left;
+}
+.outer .con .mainCon .InfoWrap .support .supportArea .fixWidth {
+  width: 520px;
+  float: left;
+  color: #999;
+}
+.outer .con .mainCon .InfoWrap .choose .chooseArea {
+  overflow: hidden;
+  line-height: 28px;
+  margin-top: 10px;
+}
+.outer .con .mainCon .InfoWrap .choose .chooseArea .choosed mark {
+  height: 30px;
+  display: inline-block;
+  line-height: 30px;
+  background-color: snow;
+  border: 1px solid #ddd;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+.outer .con .mainCon .InfoWrap .choose .chooseArea .choosed mark a {
+  font-size: 12px;
+  color: red;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.outer .con .mainCon .InfoWrap .choose .chooseArea dl {
+  overflow: hidden;
+  margin: 13px 0;
+}
+.outer .con .mainCon .InfoWrap .choose .chooseArea dl dt {
+  margin-right: 15px;
+  float: left;
+}
+.outer .con .mainCon .InfoWrap .choose .chooseArea dl dd {
+  float: left;
+  margin-right: 5px;
+  color: #666;
+  line-height: 24px;
+  padding: 2px 14px;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #eee;
+}
+.outer .con .mainCon .InfoWrap .choose .chooseArea dl dd:nth-of-type(1) {
+  color: red;
+}
+.outer .con .mainCon .InfoWrap .choose .cartWrap .controls {
+  width: 48px;
+  position: relative;
+  float: left;
+  margin-right: 15px;
+}
+.outer .con .mainCon .InfoWrap .choose .cartWrap .controls .itxt {
+  width: 38px;
+  height: 37px;
+  border: 1px solid #ddd;
+  color: #555;
+  float: left;
+  border-right: 0;
+  text-align: center;
+}
+.outer .con .mainCon .InfoWrap .choose .cartWrap .controls .plus,
+.outer .con .mainCon .InfoWrap .choose .cartWrap .controls .mins {
+  width: 15px;
+  text-align: center;
+  height: 17px;
+  line-height: 17px;
+  background: #f1f1f1;
+  color: #666;
+  position: absolute;
+  right: -8px;
+  border: 1px solid #ccc;
+}
+.outer .con .mainCon .InfoWrap .choose .cartWrap .controls .mins {
+  right: -8px;
+  top: 19px;
+  border-top: 0;
+}
+.outer .con .mainCon .InfoWrap .choose .cartWrap .controls .plus {
+  right: -8px;
+}
+.outer .con .mainCon .InfoWrap .choose .cartWrap .add {
+  float: left;
+}
+.outer .con .mainCon .InfoWrap .choose .cartWrap .add a {
+  background-color: #e1251b;
+  padding: 0 25px;
+  font-size: 16px;
+  color: #fff;
+  height: 36px;
+  line-height: 36px;
+  display: block;
+}
+.outer .productDetail {
+  width: 1200px;
+  margin: 30px auto 0;
+  overflow: hidden;
+}
+.outer .productDetail .aside {
+  width: 210px;
+  float: left;
+  border: 1px solid #ccc;
+}
+.outer .productDetail .aside .tabWraped {
+  height: 40px;
+}
+.outer .productDetail .aside .tabWraped h4 {
+  border-top: 3px solid #fff;
+  float: left;
+  line-height: 37px;
+  width: 105px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.outer .productDetail .aside .tabWraped h4.active {
+  border-top: 3px solid #e1251b;
+  border-bottom: 0;
+  font-weight: normal;
+}
+.outer .productDetail .aside .tabContent {
+  padding: 10px;
+}
+.outer .productDetail .aside .tabContent .tab-pane {
+  display: none;
+}
+.outer .productDetail .aside .tabContent .tab-pane.active {
+  display: block;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .partList {
+  overflow: hidden;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .partList li {
+  width: 50%;
+  float: left;
+  border-bottom: 1px dashed #ededed;
+  line-height: 28px;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .goodsList > li {
+  margin: 5px 0 15px;
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 5px;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .goodsList > li .list-wrap .p-img {
+  text-align: center;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .goodsList > li .list-wrap .p-img img {
+  width: 152px;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .goodsList > li .list-wrap .price {
+  font-size: 16px;
+  color: #c81623;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .goodsList > li .list-wrap .operate {
+  text-align: center;
+  margin: 5px 0;
+}
+.outer .productDetail .aside .tabContent .tab-pane:nth-child(1) .goodsList > li .list-wrap .operate a {
+  background-color: transparent;
+  border: 1px solid #8c8c8c;
+  color: #8c8c8c;
+  display: inline-block;
+  padding: 2px 14px;
+  line-height: 18px;
+}
+.outer .productDetail .detail {
+  width: 980px;
+  float: right;
+}
+.outer .productDetail .detail .fitting {
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+.outer .productDetail .detail .fitting .kt {
+  border-bottom: 1px solid #ddd;
+  background: #f1f1f1;
+  color: #333;
+  padding: 5px 0 5px 15px;
+}
+.outer .productDetail .detail .fitting .good-suits {
+  height: 170px;
+  padding-top: 10px;
+}
+.outer .productDetail .detail .fitting .good-suits .master {
+  width: 127px;
+  height: 165px;
+  text-align: center;
+  position: relative;
+  float: left;
+}
+.outer .productDetail .detail .fitting .good-suits .master img {
+  width: 87px;
+}
+.outer .productDetail .detail .fitting .good-suits .master p {
+  color: #c81623;
+  font-size: 16px;
+  font-weight: 700;
+}
+.outer .productDetail .detail .fitting .good-suits .master i {
+  position: absolute;
+  top: 48px;
+  right: -25px;
+  font-size: 16px;
+}
+.outer .productDetail .detail .fitting .good-suits .suits {
+  width: 668px;
+  height: 165px;
+  float: left;
+}
+.outer .productDetail .detail .fitting .good-suits .suits .suitsItem {
+  float: left;
+  width: 127px;
+  padding: 0 20px;
+  text-align: center;
+}
+.outer .productDetail .detail .fitting .good-suits .suits .suitsItem img {
+  width: 120px;
+  height: 130px;
+}
+.outer .productDetail .detail .fitting .good-suits .suits .suitsItem p {
+  font-size: 12px;
+}
+.outer .productDetail .detail .fitting .good-suits .suits .suitsItem label {
+  display: block;
+  position: relative;
+}
+.outer .productDetail .detail .fitting .good-suits .suits .suitsItem label input {
+  vertical-align: middle;
+}
+.outer .productDetail .detail .fitting .good-suits .suits .suitsItem label span {
+  vertical-align: middle;
+}
+.outer .productDetail .detail .fitting .good-suits .result {
+  border-left: 1px solid #ddd;
+  width: 153px;
+  height: 165px;
+  padding-left: 20px;
+  float: left;
+}
+.outer .productDetail .detail .fitting .good-suits .result .num {
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.outer .productDetail .detail .fitting .good-suits .result .price-tit {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.outer .productDetail .detail .fitting .good-suits .result .price {
+  color: #B1191A;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.outer .productDetail .detail .fitting .good-suits .result .addshopcar {
+  background-color: #e1251b;
+  border: 1px solid #e1251b;
+  padding: 10px 25px;
+  font-size: 16px;
+  color: #fff;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.outer .productDetail .detail .intro .tab-wraped {
+  background: #ededed;
+  overflow: hidden;
+}
+.outer .productDetail .detail .intro .tab-wraped li {
+  float: left;
+}
+.outer .productDetail .detail .intro .tab-wraped li + li > a {
+  border-left: 1px solid #ddd;
+}
+.outer .productDetail .detail .intro .tab-wraped li.active a {
+  background: #e1251b;
+  color: #fff;
+}
+.outer .productDetail .detail .intro .tab-wraped li a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 11px;
+  text-align: center;
+  color: #666;
+  background: #fcfcfc;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.outer .productDetail .detail .intro .tab-content .tab-pane {
+  display: none;
+}
+.outer .productDetail .detail .intro .tab-content .tab-pane.active {
+  display: block;
+}
+.outer .productDetail .detail .intro .tab-content .tab-pane:nth-child(1) .goods-intro {
+  padding-left: 10px;
+}
+.outer .productDetail .detail .intro .tab-content .tab-pane:nth-child(1) .goods-intro li {
+  margin: 10px 0;
+}
+.outer .productDetail .detail .intro .tab-content .tab-pane:nth-child(1) .intro-detail img {
+  width: 100%;
+}
+.outer .like {
+  width: 1198px;
+  border: 1px solid #ddd;
+  margin: 15px auto;
+}
+.outer .like .kt {
+  border-bottom: 1px solid #ddd;
+  background: #f1f1f1;
+  color: #333;
+  margin: 0;
+  padding: 5px 10px;
+}
+.outer .like .like-list {
+  padding: 15px 11px;
+  overflow: hidden;
+}
+.outer .like .like-list .likeItem {
+  width: 196px;
+  float: left;
+}
+.outer .like .like-list .likeItem .p-img {
+  text-align: center;
+}
+.outer .like .like-list .likeItem .p-img img {
+  width: 167px;
+  height: 123px;
+}
+.outer .like .like-list .likeItem .attr {
+  padding: 0 15px;
+}
+.outer .like .like-list .likeItem .price {
+  padding: 0 15px;
+  font-size: 16px;
+  color: #c81623;
+  margin-bottom: 20px;
+}
+.outer .like .like-list .likeItem .commit {
+  padding: 0 15px;
+}

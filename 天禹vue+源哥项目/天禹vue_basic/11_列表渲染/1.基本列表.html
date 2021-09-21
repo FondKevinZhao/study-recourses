@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>基本列表</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+				v-for指令:
+					1.用于展示列表数据
+					2.语法：v-for="(item, index) in arr" :key="item.id"
+					3.可遍历：数组、对象、字符串
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2>人员列表</h2>
+			<ul>
+				<!-- 使用v-for遍历数组 -->
+				<li v-for="(p,index) in persons" :key="p.id">
+					{{p.name}}--{{p.sex}}--{{p.age}}岁
+				</li>
+			</ul>
+			<h2>汽车信息</h2>
+			<ul>
+				<!-- 使用v-for遍历对象 -->
+				<li v-for="(value,key) in car" :key="key">{{value}}</li>
+			</ul>
+			<h2>测试遍历字符串</h2>
+			<ul>
+				<!-- 使用v-for遍历字符串 -->
+				<li v-for="(data,index) in str" :key="index">{{data}}--{{index}}</li>
+			</ul>
+		</div>
+
+		<script type="text/javascript" >
+			new Vue({
+				el:'#root',
+				data:{
+					persons:[
+						{id:'001',name:'老刘',age:20,sex:'男'},
+						{id:'002',name:'老李',age:19,sex:'女'},
+						{id:'003',name:'老王',age:18,sex:'男'},
+						{id:'004',name:'老张',age:17,sex:'女'},
+					],
+					car:{
+						name:'奔驰c63',
+						price:'60万',
+						color:'灰色'
+					},
+					str:'abcde',
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>动画案例_Vue实现</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<style>
+			.picture{
+				width: 100px;
+			}
+			.qiuku-enter-active{
+				animation: atguigu 1s;
+			}
+			.qiuku-leave-active{
+				animation: atguigu 1s reverse;
+			}
+			/* 创建一个进入的动画 */
+			@keyframes atguigu{
+				0%{
+					transform: scale(0);
+				}
+				50%{
+					transform: scale(1.3);
+				}
+				100%{
+					transform: scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+				1. 基本编码
+							(1).在目标元素外包裹<transition name="xxx">
+							(2).编写：进入动画、离开动画 的样式
+				3. 类名规范:
+							进入动画样式：xxxx-enter-active
+							离开动画样式：xxxx-leave-active
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<button @click="isShow = !isShow">切换</button> <br/>
+			<transition name="qiuku">
+				<img v-show="isShow" class="picture" src="https://s3.ax1x.com/2020/12/13/reCaqg.jpg" alt="">
+			</transition>
+		</div>
+
+		<script type="text/javascript" >
+			new Vue({
+				el:'#root',
+				data:{
+					isShow:true
+				}
+			})
+		</script>
+
+	</body>
+</html>

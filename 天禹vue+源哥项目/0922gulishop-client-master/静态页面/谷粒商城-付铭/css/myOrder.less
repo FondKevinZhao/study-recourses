@@ -1,0 +1,366 @@
+.outer{
+     //页头
+    .header{
+        &>.top{
+            background-color: #eaeaea;
+            height: 30px;
+            line-height: 30px;
+            .container{
+                width: 1200px;
+                margin: 0 auto;
+                overflow: hidden;
+                .loginList{
+                    float: left;
+                    p{
+                        float: left;
+                        margin-right: 10px;
+                        .register{
+                            border-left: 1px solid #b3aeae;
+                            padding: 0 5px;
+                            margin-left: 5px;
+                        }
+                    }
+                } 
+                .typeList{
+                    float: right;
+                    a{
+                        padding: 0 10px;
+                        & + a{
+                            border-left: 1px solid #b3aeae;
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+        &>.bottom{
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            .logoArea{
+                float: left;
+                .logo{
+                    img{
+                        width: 175px;
+                        margin: 25px 45px;
+                    }
+                }
+            }
+            .searchArea{
+                float: right;
+                margin-top: 35px;
+                .searchForm{
+                    overflow: hidden;
+                    input{
+                        box-sizing: border-box;
+                        width: 490px;
+                        height: 32px;
+                        padding: 0px 4px;
+                        border: 2px solid #ea4a36;
+                        float: left;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    button{
+                        height: 32px;
+                        width: 68px;
+                        background-color: #ea4a36;
+                        border: none;
+                        color: #fff;
+                        float: left;
+                        cursor: pointer;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //中间主体内容
+    .order-main {
+       .container {
+           margin: 0 auto;
+           width: 1200px;
+           .order-body {
+               padding: 10px;
+               color: #333;
+               &:after {
+                   content: "";
+                   display: block;
+                   clear:both;
+               }
+               //左边
+               .order-left {
+                   float: left;
+                   width: 16.67%;
+
+                   dl {
+                       line-height: 28px;
+                       dt {
+                           font-weight: 700;
+                           padding: 5px;
+                           i {
+                               color: #77b72c;
+                           }
+                       }
+                       dd {
+                           margin: 0 0 6px;
+                           border-bottom: 1px solid #ededed;
+                           text-align: center;
+                       }
+                   }
+               }
+               //右边
+               .order-right {
+                   float: right;
+                   width:83.33%;
+
+                   //订单部分
+                   .order-content {
+                       margin: 0 20px;
+                       color: #666;
+
+                       //标题
+                       .title {
+                           margin-bottom: 22px;
+                           border: 1px solid #ddd;
+                           h3 {
+                               padding: 12px 10px;
+                               font-size: 15px;
+                               background-color: #f1f1f1;
+
+                           }
+                       }
+                       //表头
+                       .chosetype {
+                           margin-bottom: 15px;
+                           color: #666;
+                           table {
+                               border: 1px solid #e6e6e6;
+                               border-collapse: separate;
+                               border-radius: 2px;
+                               width: 100%;
+                               max-width: 100%;
+                               border-spacing: 0;
+                               th {
+                                   padding: 6px 8px;
+                                   color: #666;
+                                   font-weight: 700;
+                                   vertical-align: bottom;
+                                   background-color: #f4f4f4;
+                                   line-height: 18px;
+                                   border-bottom: 1px solid #e6e6e6;
+                                   font-size: 12px;
+                                   text-align: left;
+                               }
+                           }
+                       }
+
+                       // 表单内容
+                       .orders {
+                           font-size: 12px;
+                           a {
+                               &:hover {
+                                   color: #4cb9fc;
+                               }
+                           }
+                           table {
+                               border: 1px solid #e6e6e6;
+                               border-collapse: collapse;
+                               border-radius: 2px;
+                               width: 100%;
+                               margin-bottom: 18px;
+                               max-width: 100%;
+                               th {
+                                   padding: 6px 8px;
+                                   line-height: 18px;
+                                   text-align: left;
+                                   vertical-align: bottom;
+                                   background-color: #f4f4f4;
+                                   font-size: 12px;
+                                   color: #666;
+                                   .pull-right {
+                                       float:right;
+                                       cursor: pointer;
+                                       img {
+                                           margin-right: 10px;
+                                           vertical-align: middle;
+                                       }
+                                   }
+                               }
+                               td {
+                                   font-size: 12px;
+                                   color: #666;
+                                   padding: 6px 8px;
+                                   line-height: 18px;
+                                   text-align: left;
+                                   vertical-align: middle;
+                                   border: 1px solid #e6e6e6;
+                                   &.center {
+                                       text-align: center;
+                                   }
+                                   .typographic {
+                                       img {
+                                           float: left;
+                                           margin-right: 10px;
+                                       }
+                                       a {
+                                           float: left;
+                                           min-width: 80px;
+                                           max-width: 250px;
+                                           color: #e1251b;
+                                           &.service {
+                                               color: #666;
+                                           }
+                                       }
+                                       span {
+                                           float: left;
+                                           min-width: 80px;
+                                           max-width: 250px;
+                                           text-align: center;
+                                       }
+
+                                   }
+                               }
+
+                           }
+                       }
+
+                       // 分页
+                       .choose-order {
+                           .pagination {
+                               margin: 38px 0;
+                               ul {
+                                   font-size: 0;
+                                   display: inline-block;
+                                   li {
+                                       display: inline-block;
+                                       padding: 4px 9px;
+                                       font-size: 14px;
+                                       border: 1px solid #e0e9ee;
+                                       &.prev,&.next {
+                                           background-color: #fafafa;
+                                       }
+                                       &.prev {
+                                           border-right-color:#28a3ef;
+                                       }
+                                       &.page {
+                                           border-color: #28a3ef;
+                                           border-left: 0;
+                                           &.actived {
+                                               background-color: #28a3ef;
+                                               a {
+                                                   color: #fff;
+                                               }
+
+                                           }
+                                       }
+                                   }
+                               }
+                               div {
+                                   display: inline-block;
+                                   font-size: 14px;
+                                   color: #333;
+                               }
+                           }
+                       }
+                   }
+                    // 猜你喜欢
+                   .like{
+                       border: 1px solid #ddd;
+                       margin: 15px 20px;
+                       .kt {
+                           border-bottom: 1px solid #ddd;
+                           background: #f1f1f1;
+                           color: #666;
+                           margin: 0;
+                           padding: 12px;
+                           font-size: 15px;
+                       }
+                       .like-list{
+                           padding: 15px 11px;
+                           overflow: hidden;
+                           .likeItem{
+                               width: 25%;
+                               float: left;
+                               .p-img{
+                                   text-align: left;
+                                   img{
+                                       width: 167px;
+                                       height: 123px;
+                                   }
+                               }
+                               .attr{
+                                   padding: 0 15px;
+                               }
+                               .price{
+                                   padding: 0 15px;
+                                   font-size: 16px;
+                                   color: #c81623;
+                                   margin-bottom: 20px;
+                               }
+                               .commit{
+                                   padding: 0 15px;
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
+    }
+    //页脚
+    .footer{
+        background-color: #eaeaea;
+        .footer-container{
+            width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            .footerList{
+                padding: 20px;
+                border-bottom: 1px solid #e4e1e1;
+                border-top: 1px solid #e4e1e1;
+                overflow: hidden;
+                padding-left: 40px;
+                .footerItem{
+                    width: 16.6666667%;
+                    float: left;
+                    h4{
+                        font-size: 14px;
+                    }
+                    .footerItemCon{
+                        li{
+                            line-height: 18px;
+                        }
+                    }
+                    &:last-child img{
+                        width: 121px;
+                    }
+                }
+            }
+            .copyright{
+                padding: 20px;
+                .helpLink{
+                    text-align: center;
+                    li{
+                        display: inline;
+                        .space {
+                            border-left: 1px solid #666;
+                            width: 1px;
+                            height: 13px;
+                            background: #666;
+                            margin: 8px 10px;
+                        }
+                    }
+                }
+                p{
+                    margin: 10px 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

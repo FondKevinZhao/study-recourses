@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>列表更新</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+			Vue数据绑定的原理
+					1. vue会监视data中所有层次对象的属性
+					2. 对象中的属性数据通过添加set方法来来实现监视
+					3. 数组中也实现了监视: 重写数组一系列更新元素的方法，做了两件事：
+								1).调用原生对应的方法对数组进行处理
+								2).去更新界面
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2>人员列表</h2>
+			<input v-model="keyWord" type="text" placeholder="请输入姓名">
+			<button @click="sortType = 1">年龄升序↓</button>
+			<button @click="sortType = 2">年龄降序↓</button>
+			<button @click="sortType = 0">原顺序</button>
+			<button @click="updateMei">更改马冬梅的信息</button>
+			<ul>
+				<li v-for="(p,index) in fmtPersons" :key="p.id">
+					{{p.name}}--{{p.sex}}--{{p.age}}岁
+				</li>
+			</ul>
+		</div>
+
+		<script type="text/javascript" >
+			const vm = new Vue({
+				el:'#root',
+				data:{
+					keyWord:'',
+					sortType:0, //0原顺序 1升序  2降序
+					persons:[
+						{id:'001',name:'马冬梅',age:35,sex:'女',a:{b:{c:{d:{e:1}}}}},
+						{id:'002',name:'周冬雨',age:20,sex:'女'},
+						{id:'003',name:'周杰伦',age:41,sex:'男'},
+						{id:'004',name:'温兆伦',age:25,sex:'男'},
+					]
+				},
+
+				methods:{
+					updateMei(){
+						console.log(this)
+						// this.persons[0].name = '小佩奇' //代码奏效
+						// this.persons[0].age = 99 //代码奏效
+						// this.persons[0].sex = '男' //代码奏效
+						this.persons[0] = {name:'小佩奇',age:99,sex:'男'} //不奏效
+					}
+				},
+
+				//使用computed过滤，优势：不影响原数据
+				computed:{
+					fmtPersons(){
+						const {persons,keyWord,sortType} = this
+						//根据关键词过滤
+						let arr =  persons.filter( p => p.name.indexOf(keyWord) !== -1)
+						//若需要排序
+						if(sortType){
+							//排序
+							arr.sort((a,b)=>{
+								if(sortType === 1) return a.age - b.age
+								else return b.age - a.age
+							})
+						}
+						return arr
+					}
+				}
+
+			})
+		</script>
+	</body>
+</html>

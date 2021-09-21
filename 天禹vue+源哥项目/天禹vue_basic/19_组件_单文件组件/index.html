@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<App/>
+		</div>
+
+		<script type="text/javascript" >
+			import App from './App.vue'
+
+			new Vue({
+				components:{App}
+			}).$mount('#root')
+		</script>
+	</body>
+</html>

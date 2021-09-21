@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>绑定样式</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<style>
+			.atguigu{
+				border: 3px solid black;
+			}
+			.classA{
+				background-color: skyblue;
+			}
+			.classB{
+				color: red;
+			}
+			.classC{
+				text-shadow: 2px 2px 3px yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+				1. 绑定class样式
+							:class="xxx" xxx可以是字符串、对象、数组
+				2. 绑定style样式
+							:style="{fontSize: size + 'px' }"
+											其中size是data属性
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			
+			<!-- class的字符串写法，适用于：类名不确定，要动态获取 -->
+			<h2 class="atguigu" :class="myStyle">{{title}}</h2>
+
+			<!--class的对象写法，适用于：类名确定，但不确定用不用  -->
+			<h2 class="atguigu" :class="{classB:hasB,classC:hasC}">{{title}}</h2>
+
+			<!--class的三元表达式写法，适用于：类名确定，但不确定用不用  -->
+			<h2 class="atguigu" :class="hasB ? 'classB' : '' ">{{title}}</h2>
+
+			<!--class的数组写法，适用于：同时应用多个class  -->
+			<h2 class="atguigu" :class="[a,b,c]">{{title}}</h2>
+
+			<!-- 绑定style -->
+			<h2 class="atguigu" :class="[a,b,c]" :style="{fontSize:size+'px'}">{{title}}</h2>
+
+		</div>
+
+		<script type="text/javascript" >
+			new Vue({
+				el:"#root",
+				data:{
+					title:'0922的同学过年好',
+					myStyle:'classA',
+					hasB:true, //标识是否使用classB样式
+					hasC:true, //标识是否使用classC样式
+					a:'classA',
+					b:'classB',
+					c:'classC',
+					size:40
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>自定义插件</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript" src="./atguigu.js"></script>
+	</head>
+	<body>
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2 v-upper-text="name"></h2>
+			<h2 v-lower-text="name"></h2>
+			<h2>{{$random(2,8)}}</h2>
+		</div>
+
+		<script type="text/javascript" >
+			/* 
+				插件的定义：是一个包含install方法的对象
+			*/
+			Vue.config.productionTip = false //关闭生产提示
+
+			//Vue会帮我们去调用atguigu这个插件里的install方法
+			Vue.use(atguigu)
+
+			console.log(Vue.projectName)
+			console.log(Vue.MyVersion)
+			Vue.showINfo()
+
+			const vm = new Vue({
+				el:'#root',
+				data:{
+					name:'atGuiGu'
+				}
+			})
+
+		</script>
+	</body>
+</html>

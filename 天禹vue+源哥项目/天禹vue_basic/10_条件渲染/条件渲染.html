@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>条件渲染</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<style>
+			img{
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			条件渲染：
+					v-if:
+						适用于：切换频率很低的场景
+						特点：不展示的DOM节点直接被删除
+
+					v-show:
+						适用于：切换频率很高的场景
+						特点：不展示的DOM节点没有被删除，仅仅是使用样式隐藏掉
+					
+					严重注意：使用v-if的时，DOM节点可能无法获取到，而使用v-show一定可以获取到DOM节点。
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h2>今天天气很{{isHot ? '炎热' : '凉爽'}}</h2>
+			<button @click="isHot = !isHot">切换天气</button>
+
+			<!-- 使用v-show做条件渲染 -->
+
+			<!-- 只有天气炎热，才会展示下面的div -->
+			<div v-show="isHot">
+				<img src="https://s3.ax1x.com/2020/12/13/reC1IA.jpg" alt=""><br/>
+				<span>建议：心境自然就会凉</span>
+			</div>
+
+			<!-- 只有天气凉爽，才会展示下面的div -->
+			<div v-show="!isHot">
+				<img src="https://s3.ax1x.com/2020/12/13/reCaqg.jpg" alt=""><br/>
+				<span>建议：妈妈告诉你要穿秋裤了</span>
+			</div>
+
+			<!-- ---------------------------------------------------------- -->
+			<!-- 使用v-if、v-else-if、v-else做条件渲染 -->
+			<!-- <div v-if="isHot">
+				<img src="https://s3.ax1x.com/2020/12/13/reC1IA.jpg" alt=""><br/>
+				<span>建议：心境自然就会凉</span>
+			</div> -->
+
+			<!-- <div v-else>
+				<img src="https://s3.ax1x.com/2020/12/13/reCaqg.jpg" alt=""><br/>
+				<span>建议：妈妈告诉你要穿秋裤了</span>
+			</div> -->
+
+		</div>
+
+		<script type="text/javascript" >
+			const vm = new Vue({
+				el:"#root",
+				data:{
+					isHot:false
+				}
+			})
+		</script>
+	</body>
+</html>

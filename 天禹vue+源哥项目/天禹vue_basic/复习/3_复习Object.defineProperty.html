@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script type="text/javascript" >
+			let person = {}
+
+			//如下这么写会形成递归（无限循环）
+			//set和get中的this都是当前对象
+			/* Object.defineProperty(person,'name',{
+				set(value){ //当修改person.name时，set被调用，set会收到修改的值
+					console.log('set被调用了',value)
+					this.name = value
+				},
+				get(){//当读取person.name时，get被调用,get的返回值就是name的值
+					console.log('get被调用了')
+					return 100
+				}
+			}) */
+
+			//模拟数据代理
+			let _data = {msg:"尚硅谷"}
+			let vm = {}
+			Object.defineProperty(vm,'msg',{
+				set(value){
+					_data.msg = value
+				},
+				get(){
+					return _data.msg
+				}
+			})
+
+
+		</script>
+	</body>
+</html>

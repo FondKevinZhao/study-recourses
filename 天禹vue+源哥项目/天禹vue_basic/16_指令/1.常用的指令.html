@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>常用指令</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+			常用内置指令
+				v-text 		:  更新元素的 innerText
+				v-html 		:  更新元素的 innerHTML
+				v-if 	 		:  条件渲染（动态控制节点是否存在）
+				v-else 		:  条件渲染（动态控制节点是否存在）
+				v-show 		:  条件渲染 (动态控制display)
+				v-for  		:  遍历数组/对象
+				v-on   		:  绑定事件监听, 可简写为@
+				v-bind:xxx : 强制绑定解析表达式, 可简写为 :xxx
+				v-model		: 双向数据绑定
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<a :href="url" v-text="title"></a>
+			<div v-html="htmlStr"></div>
+		</div>
+
+		<script type="text/javascript" >
+			new Vue({
+				el:'#root',
+				data:{
+					url:'http://www.atguigu.com',
+					title:'点我去学习',
+					htmlStr:`<h4>欢迎来到尚硅谷,${this.title}</h4>`
+				}
+			})
+		</script>
+	</body>
+</html>

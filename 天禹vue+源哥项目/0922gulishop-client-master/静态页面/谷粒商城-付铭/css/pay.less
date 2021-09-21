@@ -1,0 +1,260 @@
+.outer{
+     //头部
+    .header{
+        &>.top{
+            background-color: #eaeaea;
+            height: 30px;
+            line-height: 30px;
+            .container{
+                width: 1200px;
+                margin: 0 auto;
+                overflow: hidden;
+                .loginList{
+                    float: left;
+                    p{
+                        float: left;
+                        margin-right: 10px;
+                        .register{
+                            border-left: 1px solid #b3aeae;
+                            padding: 0 5px;
+                            margin-left: 5px;
+                        }
+                    }
+                } 
+                .typeList{
+                    float: right;
+                    a{
+                        padding: 0 10px;
+                        & + a{
+                            border-left: 1px solid #b3aeae;
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+        &>.bottom{
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            .logoArea{
+                float: left;
+                .logo{
+                    img{
+                        width: 175px;
+                        margin: 25px 45px;
+                    }
+                }
+            }
+            .searchArea{
+                float: right;
+                margin-top: 35px;
+                .searchForm{
+                    overflow: hidden;
+                    input{
+                        box-sizing: border-box;
+                        width: 490px;
+                        height: 32px;
+                        padding: 0px 4px;
+                        border: 2px solid #ea4a36;
+                        float: left;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    button{
+                        height: 32px;
+                        width: 68px;
+                        background-color: #ea4a36;
+                        border: none;
+                        color: #fff;
+                        float: left;
+                        cursor: pointer;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //中间内容
+    .pay-main {
+        margin-bottom: 20px;
+        .pay-container {
+            margin: 0 auto;
+            width: 1200px;
+            a:hover {
+                color:#4cb9fc;
+            }
+            .orange {
+                color: #e1251b;
+            }
+            .money {
+                font-size: 18px;
+            }
+            .zfb {
+                color: #e1251b;
+                font-weight: 700;
+            }
+            .checkout-tit {
+                padding: 10px;
+                .tit-txt {
+                    font-size: 14px;
+                    line-height: 21px;
+                    .success-icon {
+                        width: 30px;
+                        height: 30px;
+                        display: inline-block;
+                        background: url(../images/icon.png) no-repeat 0 0;
+                    }
+                    .success-info {
+                        padding: 0 8px;
+                        line-height: 30px;
+                        vertical-align: top;
+                    }
+                }
+                .paymark {
+                    overflow: hidden;
+                    line-height: 26px;
+                    text-indent: 38px;
+                    .fl {
+                        float: left;
+                    }
+                    .fr {
+                        float: right;
+                        .lead {
+                            margin-bottom: 18px;
+                            font-size: 15px;
+                            font-weight: 400;
+                            line-height: 22.5px;
+                        }
+                    }
+                }
+            }
+            .checkout-info {
+                padding-left: 25px;
+                padding-bottom: 15px;
+                margin-bottom: 10px;
+                border: 2px solid #e1251b;
+                h4 {
+                    margin: 9px 0;
+                    font-size: 14px;
+                    line-height: 21px;
+                    color: #e1251b;
+                }
+                ol {
+                     padding-left: 25px;
+                     list-style-type: decimal;
+                     line-height: 24px;
+                     font-size: 14px;
+                 }
+                ul {
+                    padding-left: 25px;
+                    list-style-type: disc;
+                    line-height: 24px;
+                    font-size: 14px;
+                }
+            }
+            .checkout-steps {
+                border: 1px solid #ddd;
+                padding: 25px;
+                .hr {
+                    height: 1px;
+                    background-color: #ddd;
+                }
+                .step-tit {
+                    line-height: 36px;
+                    margin: 15px 0;
+                }
+                .step-cont {
+                    margin: 0 10px 12px 20px;
+                    ul {
+                        font-size: 0;
+                        li {
+                            margin: 2px;
+                            display: inline-block;
+                            padding: 5px 20px;
+                            border: 1px solid #ddd;
+                            cursor: pointer;
+                            line-height: 18px;
+                        }
+                    }
+                }
+            }
+            .submit {
+                text-align: center;
+                .btn {
+                    display: inline-block;
+                    padding: 15px 45px;
+                    margin: 15px 0 10px;
+                    font: 18px "微软雅黑";
+                    font-weight: 700;
+                    border-radius: 0;
+                    background-color: #e1251b;
+                    border: 1px solid #e1251b;
+                    color: #fff;
+                    text-align: center;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    user-select: none;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    // 底部
+    .footer{
+        background-color: #eaeaea;
+        .footer-container{
+            width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            .footerList{
+                padding: 20px;
+                border-bottom: 1px solid #e4e1e1;
+                border-top: 1px solid #e4e1e1;
+                overflow: hidden;
+                padding-left: 40px;
+                .footerItem{
+                    width: 16.6666667%;
+                    float: left;
+                    h4{
+                        font-size: 14px;
+                    }
+                    .footerItemCon{
+                        li{
+                            line-height: 18px;
+                        }
+                    }
+                    &:last-child img{
+                        width: 121px;
+                    }
+                }
+            }
+            .copyright{
+                padding: 20px;
+                .helpLink{
+                    text-align: center;
+                    li{
+                        display: inline;
+                        .space {
+                            border-left: 1px solid #666;
+                            width: 1px;
+                            height: 13px;
+                            background: #666;
+                            margin: 8px 10px;
+                        }
+                    }
+                }
+                p{
+                    margin: 10px 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

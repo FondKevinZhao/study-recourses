@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>过度案例_Vue实现</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<style>
+			.picture{
+				width: 100px;
+			}
+
+			/* 离开的起点，进入的终点 */
+			.qiuku-leave,.qiuku-enter-to{
+				opacity: 1;
+				transform: scale(1) rotate(0deg);
+			}
+			/* 离开的终点,进入的起点 */
+			.qiuku-leave-to,.qiuku-enter{
+				opacity: 0;
+				transform: scale(0.2) rotate(180deg);
+			}
+			/* 离开中,进入中 */
+			.qiuku-leave-active,.qiuku-enter-active{
+				transition: 1s all linear;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!--
+				1. 基本编码
+						(1).在目标元素外包裹<transition name="xxx">
+						(2).编写样式：
+										进入：
+											进入起始点(xxx-enter)、
+											进入过程中(xxx-enter-active)、
+											进入结束点 的样式(xxx-enter-to)
+										离开:
+											离开起始点(xxx-leave)、
+											离开过程中(xxx-leave-active)、
+											离开结束点 的样式(xxx-leave-to)
+		-->
+		<div id="root">
+			<button @click="isShow = !isShow">切换</button> <br/>
+
+			<transition name="qiuku">
+				<img v-show="isShow" class="picture" src="https://s3.ax1x.com/2020/12/13/reCaqg.jpg" >
+				<div v-show="isShow"></div>
+			</transition>
+
+		</div>
+
+		<script type="text/javascript" >
+			new Vue({
+				el:'#root',
+				data:{
+					isShow:true
+				}
+			})
+		</script>
+	</body>
+</html>

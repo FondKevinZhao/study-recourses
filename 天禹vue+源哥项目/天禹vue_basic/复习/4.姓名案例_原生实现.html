@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" >
+		/* 
+			不使用框架进行编码时，什么时候用defineProperty？
+					要追加的属性，来自于其他值的加工		
+		*/
+		let p = {
+			firstName:'张',
+			lastName:'三',
+		}
+
+		Object.defineProperty(p,'sex',{
+			set(value){
+				this.sex = value
+			},
+			get(){
+				return '女'
+			}
+		})
+
+		/* Object.defineProperty(p,'fullName',{
+			set(value){//fullName被修改时，set被调用，且set方法中的this是p,且set会收到修改的值
+				const arr = value.split('-')
+				this.firstName = arr[0]
+				this.lastName = arr[1]
+			},
+			get(){ //fullName被读取时，get被调用，且get方法中的this是p
+				return this.firstName + '-' + this.lastName 
+			}
+		}) */
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>过度案例_原生实现</title>
+		<style>
+			.picture{
+				width: 100px;
+				transition: 1s all linear;
+			}
+			.come{
+				opacity: 1;
+				transform: scale(1) rotate(0deg) ;
+			}
+			.leave{
+				opacity: 0;
+				transform: scale(0.2) rotate(180deg) ;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">切换</button> <br/>
+		<img class="picture" src="https://s3.ax1x.com/2020/12/13/reCaqg.jpg" >
+	</body>
+
+	<script type="text/javascript" >
+		const btn = document.getElementById('btn')
+		const img = document.querySelector('.picture')
+		let isShow = true
+
+		btn.onclick = ()=>{
+			if(isShow) img.className = 'picture leave'
+			else img.className = 'picture come'
+			isShow = !isShow
+		}
+	</script>
+</html>

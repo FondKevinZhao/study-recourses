@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script type="text/javascript" >
+			function demo(obj){
+				this.x = obj.a
+			}
+
+			demo({a:1})
+			console.log(window.x)
+
+			new demo({a:1}) //使用new调用demo时，demo中的this是demo的实例对象
+			console.log(d.x)
+		</script>
+	</body>
+</html>

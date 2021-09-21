@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>非单文件组件</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+				组件使用的基本流程：
+						1.定义组件：Vue.extend(options)
+						2.注册组件：
+									全局注册：Vue.component('组件名',组件)
+									局部注册：配置components属性，components:{组件名:组件}
+						3.写组件标签
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root"></div>
+
+		<script type="text/javascript" >
+			Vue.config.productionTip = false //关闭生产提示
+
+			//向Vue的原型对象上追加一个xyz属性，值为1
+			Vue.prototype.xyz = 1
+
+			/* 
+				定义一个School组件：
+					1.如何定义一个组件？-- 使用Vue.extend(options)去创建
+					2.School的本质是一个构造函数，我们以后去写<School/>,Vue帮我们去new School
+					3.Vue.extend(options)中的options是配置对象，这个配置对象几乎和new Vue时的那个options一样，区别如下：
+							(1).不能写el去指定容器
+										原因：所有组件实例最终要被一个vm所管理，vm中会指定好el,即：组件让如哪个容器。
+							(2).data必须写成函数
+										原因：为了确保多个组件中的数据互不干扰
+							(3).组件的模板结构，要配置在template属性中:
+										(3.1)值为html字符串，而且要用模板字符串。
+										(3.2)模板结构，必须只有一个跟标签。
+					4.所有的组件定义后，必须注册才能使用，注册分为：全局注册、局部注册
+					5.特别注意：
+							(1).School确实是构造函数，但不是我们亲手写的School，是Vue.extend生成的。
+							(2).Vue.extend调用的返回值是VueComponent构造函数，所以new School其实就是在new VueComponent。
+							(3).所谓组件实例，就是VueComponent创建的实例，简称vc。
+									所有Vue实例，就是Vue创建的实例，简称vm
+							(4).组件的data函数、以及methods中配置的函数中this都是vc
+					6.一个最最最重要的关系：
+							VueComponent继承了Vue，所以Vue.prototype上的属性和方法，vc都能看得见
+			*/
+			const School = Vue.extend({
+				//data中存放组件所需数据
+				data(){ 
+					console.log('@',this)
+					return {
+						name:'尚硅谷',
+						address:'北七家镇-宏福科技园'
+					}
+				},
+				methods: {
+					showAddress(){
+						console.log(this.address)
+					}
+				},
+				//template中配置组件的模板结构
+				template:`
+					<div>
+						<h2 class="title">学校名：{{name}}</h2>
+						<h2 @click="showAddress">学校地址：{{address}}</h2>	
+					</div>
+				`
+			})
+			
+			//定义个Hello组件
+			const Hello = Vue.extend({
+				template:`<h2>Hello</h2>`
+			})
+
+			const App = Vue.extend({
+				components:{School,Hello},
+				template:`
+					<div>
+						<Hello/>
+						<School/>
+					</div>
+				`
+			})
+
+			//注册School组件----全局注册
+			// Vue.component('School',School)
+			
+			//定义一个vm，去管理所有的组件
+			const vm = new Vue({
+				el:'#root',
+				//注册School组件----局部注册----以后工作用的多
+				components:{App},
+				template:'<App/>'
+			})
+		</script>
+	</body>
+</html>

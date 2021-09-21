@@ -1,0 +1,200 @@
+.title {
+  width: 1200px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 21px;
+}
+.content {
+  width: 1200px;
+  margin: 10px auto 0;
+  border: 1px solid #dddddd;
+  padding: 25px;
+  box-sizing: border-box;
+}
+.content .receive,
+.content .pay {
+  line-height: 36px;
+  margin: 18px 0;
+}
+.content .address {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+.content .address .username {
+  float: left;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+  position: relative;
+}
+.content .address .username::after {
+  content: "";
+  display: none;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: url(../images/choosed.png) no-repeat;
+}
+.content .address .username.selected {
+  border-color: #e1251b;
+}
+.content .address .username.selected::after {
+  display: block;
+}
+.content .address p {
+  width: 610px;
+  float: left;
+  line-height: 30px;
+  margin-left: 10px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.content .address p .s1 {
+  float: left;
+}
+.content .address p .s2 {
+  float: left;
+  margin: 0 5px;
+}
+.content .address p .s3 {
+  float: left;
+  width: 56px;
+  height: 24px;
+  line-height: 24px;
+  margin-left: 10px;
+  background-color: #878787;
+  color: #fff;
+  margin-top: 3px;
+  text-align: center;
+}
+.content .address p:hover {
+  background-color: #ddd;
+}
+.content .line {
+  height: 1px;
+  background-color: #ddd;
+}
+.content .way {
+  width: 1080px;
+  height: 110px;
+  background: #f4f4f4;
+  padding: 15px;
+  margin: 0 auto;
+}
+.content .way h5 {
+  line-height: 50px;
+}
+.content .way .info {
+  margin-top: 20px;
+}
+.content .way .info .s1 {
+  float: left;
+  border: 1px solid #ddd;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 10px;
+}
+.content .way .info p {
+  line-height: 30px;
+}
+.content .detail {
+  width: 1080px;
+  background: #feedef;
+  padding: 15px;
+  margin: 2px auto 0;
+}
+.content .detail h5 {
+  line-height: 50px;
+}
+.content .detail .list {
+  display: flex;
+  justify-content: space-between;
+}
+.content .detail .list li {
+  line-height: 30px;
+}
+.content .detail .list li p {
+  margin-bottom: 20px;
+}
+.content .detail .list li h4 {
+  color: #c81623;
+  font-weight: 400;
+}
+.content .detail .list li h3 {
+  color: #e12228;
+}
+.content .bbs {
+  margin-bottom: 15px;
+}
+.content .bbs h5 {
+  line-height: 50px;
+}
+.content .bbs textarea {
+  width: 100%;
+  border-color: #e4e2e2;
+  line-height: 1.8;
+  outline: none;
+  resize: none;
+}
+.content .bill h5 {
+  line-height: 50px;
+}
+.content .bill div {
+  padding-left: 15px;
+}
+.money {
+  width: 1200px;
+  margin: 20px auto;
+}
+.money ul {
+  width: 220px;
+  float: right;
+}
+.money ul li {
+  line-height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.money ul li i {
+  color: red;
+}
+.trade {
+  box-sizing: border-box;
+  width: 1200px;
+  padding: 10px;
+  margin: 10px auto;
+  text-align: right;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+}
+.trade div {
+  line-height: 30px;
+}
+.trade .price span {
+  color: #e12228;
+  font-weight: 700;
+  font-size: 14px;
+}
+.trade .receiveInfo {
+  color: #999;
+}
+.sub {
+  width: 1200px;
+  margin: 0 auto 10px;
+}
+.sub .subBtn {
+  float: right;
+  width: 164px;
+  height: 56px;
+  font: 700 18px "微软雅黑";
+  line-height: 56px;
+  text-align: center;
+  color: #fff;
+  background-color: #e1251b;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>sessionStorage</title>
+	</head>
+	<body>
+		<h1>sessionStorage</h1>
+		<button id="btn1">保存数据</button>
+		<button id="btn2">读取数据</button>
+		<button id="btn3">删除数据</button>
+		<button id="btn4">清除数据</button>
+		
+
+		<script type="text/javascript" >
+			const btn1 = document.getElementById('btn1')
+			const btn2 = document.getElementById('btn2')
+			const btn3 = document.getElementById('btn3')
+			const btn4 = document.getElementById('btn4')
+
+			const arr = [1,3,5,7,9]
+			const p = {name:'老刘',age:19}
+
+			btn1.onclick = ()=>{
+				sessionStorage.setItem('person',JSON.stringify(p))
+				sessionStorage.setItem('someData',JSON.stringify(arr))
+			}
+
+			btn2.onclick = ()=>{
+				const result = sessionStorage.getItem('person')
+				try {
+					//尝试着解析，如果没问题就正常输出
+					console.log(JSON.parse(result))
+				} catch (error) {
+					//一旦解析出错，清空该组数据
+					console.log(error.message)
+					sessionStorage.removeItem('person')
+				}
+			}
+			
+			btn3.onclick = ()=>{
+				sessionStorage.removeItem('person')
+			}
+
+			btn4.onclick = ()=>{
+				sessionStorage.clear()
+			}
+		</script>
+	</body>
+</html>

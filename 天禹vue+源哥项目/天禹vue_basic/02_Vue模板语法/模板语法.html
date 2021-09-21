@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>模板语法</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+				Vue模板语法有2大类：
+						1.插值语法：
+								功能：用于解析标签体内容
+								写法：{{xxxx}},xxx会作为表达式去解析，且可以自动读取到data中的属性
+						2.指令语法：
+								功能：用于解析标签（包括：标签属性、标签体内容、绑定事件.....）
+								举例：v-bind:href="xxxxxx" 或  简写为:
+								备注：Vue中有很多的指令，此处我们只是拿v-bind举个例子
+		-->
+		<!-- 准备一个容器 -->
+		<div id="root">
+			<h2>插值语法</h2>
+			<h4>你好，{{msg}}</h4>
+			<h4>你好，{{msg.toUpperCase()}}</h4>
+			<hr/>
+			<h2>指令语法</h2>
+			<a v-bind:href="url">点我去学习1</a>
+			<a :href="url">点我去学习2</a>
+			<a href="http://www.atguigu.com" :x="msg">点我去学习3</a>
+		</div>
+
+		<script type="text/javascript" >
+			new Vue({
+				el:'#root',
+				data:{
+					msg:'atguigu',
+					url:'http://www.atguigu.com'
+				}
+			})
+		</script>
+	</body>
+</html>
