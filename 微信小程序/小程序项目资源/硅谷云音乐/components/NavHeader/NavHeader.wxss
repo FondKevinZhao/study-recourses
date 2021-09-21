@@ -1,0 +1,30 @@
+/* components/NavHeader/NavHeader.wxss */
+.header .title{
+  font-size:28rpx;
+}
+
+.header .moreTitle{
+  /* 清除浮动 
+    1.给当前元素添加伪元素,并设置clear:both;
+    2.给当前元素添加高度
+    3.开启BFC
+      1)overflow的值不为默认值
+      2)position:fixed|absolute
+      3)display:inline-block|table|table-cell
+      4)float:left|right
+  */
+  overflow:hidden;
+}
+
+.header .moreTitle .moreContent{
+  float:left;
+  font-size:30rpx;
+}
+
+.header .moreTitle .more{
+  float:right;
+  font-size:22rpx;
+  border:1rpx solid;
+  border-radius: 10rpx;
+  padding:10rpx 20rpx;
+}

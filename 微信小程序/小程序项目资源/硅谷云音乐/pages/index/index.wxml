@@ -1,0 +1,90 @@
+<view class="indexContainer">
+  <swiper 
+  autoplay
+  circular
+  indicator-dots
+  indicator-color="ivory"
+  indicator-active-color="#d43c33"
+  >
+    <swiper-item 
+    wx:for="{{banners}}"
+    wx:key="pic"
+    wx:for-item="banner"
+     >
+      <image class="nvshen" src="{{banner.pic}}"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 导航区域 -->
+  <view class="nav">
+    <view class="navItem" bindtap="toRecommendSong">
+      <view class="iconfont icon-meirituijian-"></view>
+      <text>每日推荐</text>
+    </view>
+    <view class="navItem">
+      <view class="iconfont icon-gedan1"></view>
+      <text>歌单</text>
+    </view>
+    <view class="navItem">
+      <view class="iconfont icon-icon-ranking"></view>
+      <text>排行榜</text>
+    </view>
+    <view class="navItem">
+      <view class="iconfont icon-diantai"></view>
+      <text>电台</text>
+    </view>
+    <view class="navItem">
+      <view class="iconfont icon-zhiboguankanliangbofangsheyingshexiangjixianxing"></view>
+      <text>直播</text>
+    </view>
+  </view>
+
+  <!-- 推荐歌曲区域 -->
+  <view class="recommendContainer">
+
+    <!-- 推荐区域头部 -->
+
+    <NavHeader title="推荐歌曲" moreContent="为你精心推荐"/>
+
+    <scroll-view 
+    class="recommendScroll"
+    scroll-x
+    enable-flex
+    >
+      <view 
+      class="recommendItem"
+      wx:for="{{recommendList}}"
+      wx:key="id"
+      >
+        <image 
+        class="recommendImg" 
+        src="{{item.picUrl}}"
+        lazy-load
+        ></image>
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 排行榜区域 -->
+  <view class="topContainer">
+    <NavHeader title="排行榜" moreContent="热歌风向标"/>
+    <swiper class="topSwiper" next-margin="50">
+      <swiper-item wx:for="{{topList}}" wx:key="id">
+        <view class="topItem">
+          <view class="topName">{{item.name}}</view>
+          <view class="song" 
+          wx:for="{{item.tracks}}"
+          wx:for-item="song"
+          wx:for-index="songIndex"
+          wx:key="id"
+          >
+            <image class="topImg" src="{{song.al.picUrl}}"></image>
+            <text class="topIndex">{{songIndex + 1}}</text>
+            <text class="songName">{{song.name}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

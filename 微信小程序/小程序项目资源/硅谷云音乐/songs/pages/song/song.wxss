@@ -1,0 +1,138 @@
+/* pages/song/song.wxss */
+@import "/static/iconfont/iconfont.wxss";
+page{
+  height:100%;
+}
+.songContainer{
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.keng{
+  width:60rpx;
+  height:60rpx;
+  background: white;
+  border-radius: 50%;
+  z-index:100;
+}
+
+.needle{
+  position:relative;
+  width:192rpx;
+  height:274rpx;
+  top:-36rpx;
+  left:58rpx;
+  z-index:99;
+  transform:rotateZ(-30deg);
+  transition:transform 1s;
+  transform-origin:40rpx 0;
+}
+
+.songContainer.isplay .needle{
+  transform:rotateZ(0deg);
+}
+
+.discContainer{
+  position:relative;
+  width:598rpx;
+  height:598rpx;
+  top:-180rpx;
+  /* transition: transform 4s; */     animation: move 4s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes move{
+  from{
+    transform:rotateZ(0deg);
+  }
+
+  to{
+    transform:rotateZ(360deg);
+  }
+}
+
+.songContainer.isplay .discContainer{
+  animation-play-state: running;
+}
+
+.discContainer .disc{
+  position:relative;
+  height:100%;
+  width:100%;
+  z-index:90;
+}
+
+.discContainer .bigImg{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+  width:370rpx;
+  height:370rpx;
+  z-index:89;
+  /*
+    z-index生效条件:
+      1.开启了定位的元素
+      2.flex的直系子元素
+  */
+}
+
+
+/* musicControl */
+.musicControl {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1rpx solid #fff;
+}
+
+.musicControl text {
+  width: 20%;
+  text-align: center;
+  font-size: 50rpx;
+  color: #fff;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.musicControl text.big {
+  font-size: 80rpx;
+}
+
+/* 进度条样式开始 */
+.barContainer{
+  display:flex;
+  align-items:center;
+}
+
+.barContainer .wrap{
+  width:450rpx;
+  height:4rpx;
+  background:rgba(0,0,0,0.5);
+  margin:0 20rpx;
+}
+
+.barContainer .wrap .inner{
+  position: relative;
+  width:0%;
+  height:100%;
+  background: red;
+}
+
+.barContainer .wrap .inner .point{
+  position: absolute;
+  width: 12rpx;
+  height:12rpx;
+  right:-6rpx;
+  top:-4rpx;
+  background:white;
+  border-radius: 50%;
+}
+/* 进度条样式结束 */

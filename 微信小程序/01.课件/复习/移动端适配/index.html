@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=2,width=device-width">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        img{
+            /* width:187px;
+            height:187px; */
+            /* width:50vw;
+            height:50vw; */
+            width:0.5rem;
+            height:0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设备独立像素和css像素之间没有关系 -->
+    <!-- 布局视口是用于绘制所有的内容,实指HTML元素(css像素) -->
+    <!-- 视觉视口是用于限制你能看到的内容,实指手机屏幕(设备独立像素) -->
+    <!-- 理想视口是指布局视口宽度和视觉视口宽度一样大,
+            实现方式:通过meta[name=viewport]标签可以实现修改布局视口大小
+                1.content="width=device-width"
+                2.content="initial-scale=1",这个属性代表默认缩放比例,initial-scale=0.5=视觉视口宽度/布局视口宽度
+                3.以上两个属性,谁计算出来的宽度大,以谁为准
+    -->
+    <!-- 适配
+        适配就是让一套样式,在多种大小的手机上,显示效果相近
+        需求:让图片在屏幕上占据一半宽度
+        方案一:宽高设置为百分比
+            问题:该元素必须是body中的根元素
+        方案二:vw和vh   (100vw=屏幕100%宽度,100vh=屏幕100%高度)
+            问题:兼容性不行,vw和vh是C3的新特性
+            思考:我需要得到一个全页面都可以使用到的单位,该单位与屏幕宽度有直接关系
+        方案三:rem  (root em,参考于根节点字体大小)
+            通过js将当前屏幕的宽度,作为根节点的字体大小
+    -->
+    <div style="width:100px">
+        <img src="./1.webp" alt="">
+    </div>
+    <script>
+        // 获取当前屏幕宽度(由于无法直接获取到当前视觉视口宽度,所以先让布局视口和视觉视口等宽,在获取布局视口宽度)
+        const width = document.documentElement.clientWidth;
+        console.log(width)
+        document.documentElement.style.fontSize=width/10+"px";
+        document.body.style.fontSize="16px"
+    </script>
+</body>
+</html>

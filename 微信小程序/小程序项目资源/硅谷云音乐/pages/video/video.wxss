@@ -1,0 +1,125 @@
+
+.videoContainer .header{
+  display:flex;
+  padding:10rpx 10rpx 0;
+  /* justify-content: space-between; */
+}
+
+.videoContainer .header image{
+  width:60rpx;
+  height:60rpx;
+  /* flex-grow:1; */
+}
+
+.videoContainer .header input{
+  border:1rpx solid #eee;
+  height:60rpx;
+  margin:0 10rpx;
+  border-radius: 10rpx;
+  flex-grow:1;
+}
+
+.videoContainer .header input .placeholder{
+  text-align: center;
+  font-size:28rpx;
+  color:red;
+}
+
+.videoContainer .navScroll{
+  display: flex;
+  height:100rpx;
+}
+
+.videoContainer .navScroll .navItem{
+  height:100rpx;
+  /* line-height:100rpx; */
+  /* margin:0 20rpx; */
+  padding:0 20rpx;
+  white-space:nowrap;
+}
+
+.videoContainer .navScroll .navItem text{
+  display:block;
+  line-height: 96rpx;
+  box-sizing: border-box;
+}
+
+.videoContainer .navScroll .navItem.active text{
+  border-bottom:4rpx solid red;
+}
+
+
+.videoList .common {
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.videoList .videoItem{
+  padding:3%;
+  padding-bottom:0;
+}
+
+
+.videoList{
+  padding-top:40rpx;
+}
+
+.videoList .content {
+  font-size: 26rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  max-width: 500rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* footer */
+.footer {
+  border-top: 1rpx solid #eee;
+  padding: 20rpx 0;
+}
+.footer .avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.footer  .nickName {
+  font-size: 26rpx;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+
+.footer .comments_praised {
+  float: right;
+}
+.comments_praised .btn {
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.comments_praised .btn:after {
+  border: none;
+}
+
+.comments_praised .item {
+  margin-left: 50rpx;
+  position: relative;
+}
+
+.comments_praised .item .count {
+  position: absolute;
+  top: -20rpx;
+  font-size: 20rpx;
+}
+
+.videoList{
+  /* height=屏幕百分百高度 - header高度 - navScroll高度 - videoList的上padding
+      calc内部,减号前后必须有空格,否则无效
+   */
+  height: calc( 100vh - 72rpx - 80rpx - 40rpx - 30rpx);
+}

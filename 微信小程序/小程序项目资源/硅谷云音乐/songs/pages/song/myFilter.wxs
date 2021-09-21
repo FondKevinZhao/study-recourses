@@ -1,0 +1,17 @@
+function timeFilter(time,type){
+  var min,sec;
+  var s = type==="ms"?time /1000:time;
+  min = Math.floor(s/60);
+  if (min<10){
+    min="0"+min
+  }
+  sec = Math.floor(s - min * 60);
+  if (sec < 10) {
+    sec = "0" + sec
+  }
+  return min+":"+sec
+}
+
+module.exports={
+  timeFilter: timeFilter
+}

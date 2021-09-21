@@ -1,0 +1,122 @@
+/* pages/index/index.wxss */
+.indexContainer swiper{
+  height:330rpx;
+}
+.indexContainer swiper swiper-item .nvshen{
+  width:100%;
+  height:100%
+}
+
+.indexContainer .nav{
+  display:flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.indexContainer .nav .navItem .iconfont{
+  width:100rpx;
+  height:100rpx;
+  line-height:100rpx;
+  border-radius: 50%;
+  color:white;
+  font-size:50rpx;
+  background:rgba(240,16,16);
+  margin:20rpx 0;
+}
+
+.indexContainer .nav .navItem text{
+  font-size:28rpx;
+}
+
+/* 推荐歌曲区域开始 */
+
+
+
+.indexContainer .recommendContainer{
+  padding:0 20rpx;
+}
+
+.indexContainer .recommendContainer .recommendScroll{
+  display:flex;
+  height:300rpx;
+}
+
+.indexContainer .recommendContainer .recommendScroll .recommendItem{
+  display:flex;
+  flex-direction: column;
+  margin-right:20rpx;
+  width:200rpx;
+}
+
+.indexContainer .recommendContainer .recommendScroll .recommendItem .recommendImg{
+  width:200rpx;
+  height:200rpx;
+  border-radius: 20rpx;
+}
+
+.indexContainer .recommendContainer .recommendScroll .recommendItem text{
+  /* 单行文本溢出隐藏,显示省略号 */
+  /* white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis; */
+
+  /* 多行文本溢出隐藏,显示省略号 */
+  height:80rpx;
+  overflow: hidden;
+
+  /* 1.开启webkit内核的box盒模型 */
+  display:-webkit-box;
+
+  /* 2.声明当前溢出隐藏的行数 */
+  -webkit-line-clamp:2;
+
+  /* 3.声明当前文本排列方向 */
+  -webkit-box-orient:vertical;
+}
+
+/* 推荐歌曲区域结束 */
+
+/* 排行榜区域开始 */
+.topContainer .topSwiper{
+  height:420rpx;
+}
+
+.topContainer .topSwiper .topItem{
+  width:97%;
+  background:pink;
+}
+
+.topContainer .topSwiper .topItem .song  .topImg{
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+}
+
+.topContainer .topSwiper .topItem .song{
+  display:flex;
+  align-items: center;
+  padding:10rpx 0;
+}
+
+.topContainer .topSwiper .topItem .song .topIndex{
+  /* 
+    将一个非block元素变成block的方法:
+      1.display:block;
+      2.给父级添加flex
+      3.float
+      4.position
+   */
+  width:100rpx;
+  height:100rpx;
+  text-align: center;
+  line-height:100rpx;
+  flex-shrink: 0;
+}
+
+.topContainer .topSwiper .topItem .song .songName{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+/* 排行榜区域结束 */

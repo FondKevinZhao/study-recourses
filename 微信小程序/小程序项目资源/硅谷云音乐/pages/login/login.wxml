@@ -1,0 +1,38 @@
+
+<view class="container">
+  <view class="wrapper">
+    <view class="left-top-sign">LOGIN</view>
+    <view class="welcome">
+      欢迎回来！
+    </view>
+    <view class="input-content">
+      <view class="input-item">
+        <text class="tit">手机号码</text>
+        <input
+        bindchange="handleInput"
+        id="phone" 
+        data-type="phone"
+        type="text" 
+        value="{{phone}}"
+        placeholder="请输入手机号码"/>
+      </view>
+      <view class="input-item">
+        <text class="tit">密码</text>
+        <input 
+        bindchange="handleInput"
+        id="password" 
+        data-type="password"
+        type="password"  
+        placeholder="请输入密码"/>
+      </view>
+    </view>
+    <button class="confirm-btn" bindtap="handleLogin">登录</button>
+    <view class="forget-section">
+      忘记密码?
+    </view>
+  </view>
+  <view class="register-section">
+    还没有账号?
+    <text >马上注册</text>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<wxs src="./myFilter.wxs" module="myFilter" />
+<view class="songContainer {{isPlay?'isplay':''}}">
+  <text>{{songObj.ar[0].name}}</text>
+  <view class="keng"></view>
+  <image class="needle" src="/static/images/song/needle.png"></image>
+  <view class="discContainer">
+    <image class="disc" src="/static/images/song/disc.png"></image>
+    <image class="bigImg" src="{{songObj.al.picUrl}}"></image>
+  </view>
+
+  <!-- 进度条区域 -->
+  <view class="barContainer">
+    <text class="currentTime">{{myFilter.timeFilter(currentTime,'s')}}</text>
+    <view class="wrap">
+      <view class="inner" style="width:{{currentWidth}}%">
+        <view class="point"></view>
+      </view>
+    </view>
+    <text class="durationTime">{{myFilter.timeFilter(durationTime,'ms')}}</text>
+  </view>
+
+  <!-- 音乐控制器 -->
+  <view class="musicControl">
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle" ></text>
+    <text class="iconfont icon-shangyishou" id="pre" bindtap="switchType"></text>
+    <text class="iconfont big {{isPlay?'icon-zanting':'icon-bofang'}}" bindtap="handlePlay"></text>
+    <text class="iconfont icon-next" id="next" bindtap="switchType"></text>
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
+  </view>
+</view>
