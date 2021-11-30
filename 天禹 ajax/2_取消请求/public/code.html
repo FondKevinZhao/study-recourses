@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>练习取消请求</title>
+</head>
+<body>
+<button id="btn">点我获取验证码</button>
+<div id="test"></div>
+<script type="text/javascript">
+  
+  let btn = document.getElementById('btn')
+  let lastXhr
+  btn.onclick = function () {
+    if(lastXhr) lastXhr.abort()
+    lastXhr = getCode()
+  }
+  
+  function getCode() {
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState === 4 && xhr.status === 200){
+        console.log('验证码是：',xhr.response)
+      }
+    }
+    xhr.open('get','http://localhost:3000/get_verify_code')
+    xhr.send()
+    return xhr
+  }
+  
+  
+</script>
+
+</body>
+</html>

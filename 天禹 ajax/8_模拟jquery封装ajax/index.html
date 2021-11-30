@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>封装ajax</title>
+</head>
+<body>
+<button id="btn">点我使用自己封装的ajax请求数据</button>
+<script type="text/javascript">
+
+  let btn = document.getElementById('btn')
+  btn.onclick = ()=>{
+    sendAjax({
+      url:'http://localhost:3000/test_post',
+      method:'post',
+      data:{name:'kobe',age:18},
+      success:(result)=>{
+        console.log(result)
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
+
+
+  //用于发送ajax请求的函数，封装的是原生xhr
+  function sendAjax(options) {
+
+    //1.从配置对象中获取发请求所需的参数
+    let {url,method,data,success,error} = options
+    method = method || 'get'
+
+    //2.实例化一个xhr
+    let xhr = new XMLHttpRequest()
+
+    //3.监听状态
+    xhr.onreadystatechange = ()=>{
+      if(xhr.readyState !== 4) return
+      if(xhr.readyState === 4 && (xhr.status >= 200 && xhr.status <= 299)){
+        if(success) success(xhr.response)
+      }else{
+        if(error) error('请求失败')
+      }
+    }
+
+   //4.整理参数
+    let str = ''
+    if(data){
+      for (let key in data){
+        str += `${key}=${data[key]}&`
+      }
+    }
+
+   //5.此处应该判断请求方式，根据请求的方式，决定如何携带参数
+    if(method.toUpperCase() === 'GET'){
+      xhr.open(method,`${url}?${str}`)
+      xhr.send()
+    }else{
+      xhr.open(method,url)
+      xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+      xhr.send(str)
+    }
+
+  }
+
+
+</script>
+
+</body>
+</html>

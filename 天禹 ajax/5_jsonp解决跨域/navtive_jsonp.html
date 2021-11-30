@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>原生js写jsonp</title>
+</head>
+<body>
+<button id="btn">点我获取数据</button>
+
+<form action="http://localhost:3000/test_get" method="get">
+
+  <input type="submit">
+
+</form>
+
+<script type="text/javascript">
+
+  /*
+  * jsonp解决跨域：
+  *     1.利用script标签，发请求不受到同源策略的限制。
+  *     2.需要后端工程师配合
+  *     3.不可以解决post请求跨域的问题
+  * */
+
+  let btn = document.getElementById('btn')
+  btn.onclick = ()=>{
+    //1.创建一个script标签
+    let scriptNode = document.createElement('script')
+    //2.提前定义好一个函数
+    window.demo3 = function (data) {
+      console.log(data)
+    }
+    //3.为script标签指定src属性
+    scriptNode.src = 'http://localhost:3000/test_get?callback=demo3'
+    //4.将script标签加入页面
+    document.body.appendChild(scriptNode)
+  }
+
+</script>
+
+
+</body>
+</html>

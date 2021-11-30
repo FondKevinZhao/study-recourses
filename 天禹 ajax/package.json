@@ -1,0 +1,12 @@
+{
+  "name": "ajax_0819",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Tianyu5177/0819_ajax.git",
+  "author": "tianyu <tianyu5177@sina.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.13"
+  }
+}

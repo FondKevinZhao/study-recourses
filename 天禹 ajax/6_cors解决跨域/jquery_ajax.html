@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="./jquery.min.js"></script>
+
+<button id="btn1">点我使用jquery发送ajax_get请求</button>
+<button id="btn2">点我使用jquery发送ajax_post请求</button>
+
+<script type="text/javascript">
+
+  let btn1 = $('#btn1')
+  let btn2 = $('#btn2')
+
+  btn1.click(()=>{
+
+    //完整写法
+    /*$.ajax({
+      url:'http://localhost:3000/test_get',
+      method:'get',
+      data:{name:'kobe',age:18},
+      success:(result)=>{
+        console.log(result)
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })*/
+
+    //精简写法
+    $.get('http://localhost:3000/test_get',{name:'kobe',age:18},(data)=>{
+        console.log(data)
+    })
+  })
+
+  btn2.click(()=>{
+
+   /* $.ajax({
+      url:'http://localhost:3000/test_post',
+      method:'post',
+      data:{name:'kobe',age:18},
+      success:(result)=>{
+        console.log(result)
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })*/
+
+    $.post('http://localhost:3000/test_post',{name:'kobe',age:18},(data)=>{
+      console.log(data)
+    })
+
+  })
+
+</script>
+
+</body>
+</html>

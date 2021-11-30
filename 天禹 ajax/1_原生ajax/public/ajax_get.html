@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>练习使用原生js发送ajax_get请求</title>
+</head>
+<body>
+<button id="btn">点我使用原生js发送ajax——get请求</button>
+<h2>练习使用原生js发送ajax_get请求，别用编译器打开该网页，要通过服务器</h2>
+<div id="test"></div>
+<script type="text/javascript">
+  
+  let btn = document.getElementById('btn')
+  btn.onclick = function () {
+    //1.实例化一个xhr对象
+    let xhr = new XMLHttpRequest()
+
+    xhr.onreadystatechange = function(){
+      /*
+        xhr内部有5种状态，标识着当前xhr内部读取数据的状态,分别是：
+             0：xhr实例出来的那一刻，就是0状态
+             1：send方法还没有调用，依然可以修改请求头
+             2：send方法已经调用了，此时已经不可以修改请求头了
+             3：服务器给浏览器的数据，已经回来一部分了，小的数据会在此阶段一次性接收完毕，大的数据，有待进一步接收
+             4：所有数据都完美的“回来”了
+      */
+      //我们几乎不会在readyState为0的时候做逻辑，如下判断永远进不去
+      /*if(xhr.readyState === 0){
+        console.log('我刚被实例化出来')
+      }*/
+      /*if(xhr.readyState === 1){
+        xhr.setRequestHeader('demo',123)
+        console.log('我的内部状态是1')
+      }*/
+      /*if(xhr.readyState === 2){
+        //xhr.setRequestHeader('demo',123)
+        console.log('我的内部状态是2')
+      }*/
+      /*if(xhr.readyState === 3){
+        //xhr.setRequestHeader('demo',123)
+        console.log('我的内部状态是3',xhr.response)
+      }*/
+      if(xhr.readyState === 4 && xhr.status === 200){
+        console.log(xhr.response)
+        //let test = document.getElementById('test')
+        //test.append(xhr.response)
+      }
+    }
+
+    //3.用何种方式发请求？给谁发请求？带着什么参数过去？
+    xhr.open('get','http://localhost:3000/test_get?name=kobe&age=18&t='+Date.now())
+
+    //4.真正发送请求
+    xhr.send()
+  }
+  
+  
+</script>
+
+</body>
+</html>
