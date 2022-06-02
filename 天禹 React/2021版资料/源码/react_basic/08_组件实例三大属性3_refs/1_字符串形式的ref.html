@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1_字符串形式的ref</title>
+</head>
+<body>
+	<!-- 准备好一个“容器” -->
+	<div id="test"></div>
+	
+	<!-- 引入react核心库 -->
+	<script type="text/javascript" src="../js/react.development.js"></script>
+	<!-- 引入react-dom，用于支持react操作DOM -->
+	<script type="text/javascript" src="../js/react-dom.development.js"></script>
+	<!-- 引入babel，用于将jsx转为js -->
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+
+	<script type="text/babel">
+		//创建组件
+		class Demo extends React.Component{
+			//展示左侧输入框的数据
+			showData = ()=>{
+				const {input1} = this.refs
+				alert(input1.value)
+			}
+			//展示右侧输入框的数据
+			showData2 = ()=>{
+				const {input2} = this.refs
+				alert(input2.value)
+			}
+			render(){
+				return(
+					<div>
+						<input ref="input1" type="text" placeholder="点击按钮提示数据"/>&nbsp;
+						<button onClick={this.showData}>点我提示左侧的数据</button>&nbsp;
+						<input ref="input2" onBlur={this.showData2} type="text" placeholder="失去焦点提示数据"/>
+					</div>
+				)
+			}
+		}
+		//渲染组件到页面
+		ReactDOM.render(<Demo a="1" b="2"/>,document.getElementById('test'))
+	</script>
+</body>
+</html>

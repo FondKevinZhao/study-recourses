@@ -1,0 +1,9 @@
+.parent{
+	background-color: orange;
+	padding: 10px;
+}
+.child{
+	background-color: gray;
+	margin-top: 30px;
+	padding: 10px;
+}

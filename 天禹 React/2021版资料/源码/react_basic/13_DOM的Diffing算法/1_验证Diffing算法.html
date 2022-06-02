@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>验证diff算法</title>
+</head>
+<body>
+	<!-- 准备好一个“容器” -->
+	<div id="test"></div>
+	
+	<!-- 引入react核心库 -->
+	<script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
+	<!-- 引入react-dom，用于支持react操作DOM -->
+	<script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
+	<!-- 引入babel，用于将jsx转为js -->
+	<script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+
+	<script type="text/babel">
+		class Time extends React.Component {
+			state = {date: new Date()}
+
+			componentDidMount () {
+				setInterval(() => {
+					this.setState({
+						date: new Date()
+					})
+				}, 1000)
+			}
+
+			render () {
+				return (
+					<div>
+						<h1>hello</h1>
+						<input type="text"/>
+						<span>
+							现在是：{this.state.date.toTimeString()}
+							<input type="text"/>
+						</span>
+					</div>
+				)
+			}
+		}
+
+		ReactDOM.render(<Time/>,document.getElementById('test'))
+</script>
+</body>
+</html>

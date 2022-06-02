@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script type="text/javascript" >
+			class Person {
+				constructor(name,age){
+					this.name = name
+					this.age = age
+				}
+				study(){
+					//study方法放在了哪里？——类的原型对象上，供实例使用
+					//通过Person实例调用study时，study中的this就是Person实例
+					console.log(this);
+				}
+			}
+
+			const p1 = new Person('tom',18)
+			p1.study() //通过实例调用study方法
+			const x = p1.study
+			x()
+
+		</script>
+	</body>
+</html>

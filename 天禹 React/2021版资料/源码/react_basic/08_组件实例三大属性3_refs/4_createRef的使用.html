@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4_createRef</title>
+</head>
+<body>
+	<!-- 准备好一个“容器” -->
+	<div id="test"></div>
+	
+	<!-- 引入react核心库 -->
+	<script type="text/javascript" src="../js/react.development.js"></script>
+	<!-- 引入react-dom，用于支持react操作DOM -->
+	<script type="text/javascript" src="../js/react-dom.development.js"></script>
+	<!-- 引入babel，用于将jsx转为js -->
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+
+	<script type="text/babel">
+		//创建组件
+		class Demo extends React.Component{
+			/* 
+				React.createRef调用后可以返回一个容器，该容器可以存储被ref所标识的节点,该容器是“专人专用”的
+			 */
+			myRef = React.createRef()
+			myRef2 = React.createRef()
+			//展示左侧输入框的数据
+			showData = ()=>{
+				alert(this.myRef.current.value);
+			}
+			//展示右侧输入框的数据
+			showData2 = ()=>{
+				alert(this.myRef2.current.value);
+			}
+			render(){
+				return(
+					<div>
+						<input ref={this.myRef} type="text" placeholder="点击按钮提示数据"/>&nbsp;
+						<button onClick={this.showData}>点我提示左侧的数据</button>&nbsp;
+						<input onBlur={this.showData2} ref={this.myRef2} type="text" placeholder="失去焦点提示数据"/>&nbsp;
+					</div>
+				)
+			}
+		}
+		//渲染组件到页面
+		ReactDOM.render(<Demo a="1" b="2"/>,document.getElementById('test'))
+	</script>
+</body>
+</html>
