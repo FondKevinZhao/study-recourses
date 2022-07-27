@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点我批量发送3个请求</button>
+	<script type="text/javascript" src="./js/axios.min.js"></script>
+	<script type="text/javascript" >
+
+	let btn = document.getElementById('btn')
+	axios.defaults.baseURL = 'http://localhost:3000'
+	btn.onclick = ()=>{
+		axios.all([
+			axios.get('/get_data1'),
+			axios.get('/get_data2'),
+			axios.get('/get_data3')
+		]).then(
+			response => {console.log('成功',response)},
+			error => {console.log('失败',error)}
+		)
+	}
+
+	</script>
+</body>
+</html>

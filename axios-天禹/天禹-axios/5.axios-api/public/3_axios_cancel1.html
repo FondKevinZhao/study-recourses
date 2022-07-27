@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./js/axios.min.js"></script>
+
+	<button onclick="getData()">点我获取数据</button><br><br>
+	<button onclick="abolish()">取消请求</button><br><br>
+
+	<script type="text/javascript">
+
+	const {CancelToken,isCancel} = axios
+	let cancel
+
+	function getData(){
+		axios({
+			url:'http://localhost:3001/get_data1',
+			method:'get',
+			cancelToken:new CancelToken((c)=>{
+				//c() //c是一个函数，由axios底层传递过来的，用于取消本次请求。
+				cancel = c
+			})
+		}).then(
+			response => {console.log('获取所有人成功',response.data);},
+			error => {
+				if(isCancel(error)){
+					console.log('用户取消了请求',error.message);
+				}else{
+					console.log('获取所所有人失败',error.message);
+				}
+			}
+		)
+	}
+
+	function abolish(){
+		cancel('任性，这次请求就不要了')
+	}
+
+	</script>
+
+</body>
+</html>

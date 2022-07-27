@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>xhr的API</title>
+</head>
+
+<body>
+	<button id="btn">点我获取所有人</button>
+	<script type="text/javascript">
+
+		let btn = document.getElementById('btn')
+		btn.onclick = () => {
+			//实例化xhr
+			let xhr = new XMLHttpRequest()
+			//如果返回的是json数据，自动解析好
+			xhr.responseType = 'json'
+			//设置超时时间，如果2秒钟内没有数据，就不等了。
+			/* xhr.timeout = 2000 */
+			//超时的回调
+			/* xhr.ontimeout = ()=>{
+				console.log('服务器太磨叽了，触发了我的超时回调');
+			} */
+			//请求出错的回调
+			/* xhr.onerror = ()=>{
+				console.log('网络有问题');
+			} */
+			//数据成功加载的回调
+			/* xhr.onload = ()=>{
+				console.log(xhr.response);
+			} */
+			//绑定监听
+			xhr.onreadystatechange = () => {
+
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					// 返回的是字符串格式的数据
+					console.log('返回字符串格式', xhr.response);
+					// 解析字符串格式的数据，方法一：JSON.parse
+					console.log('JSON.parse解析', JSON.parse(xhr.response));
+					// 解析字符串格式的数据，方法二：使用xhr自带的responseType，如果是json格式，会自动解析响应体的数据
+					// xhr.responseType = 'json'; // 这句话要加载在上面，放这里会报错
+					console.log('xhr.responseType', xhr.response);
+					//获取指定key的响应头
+					console.log(xhr.getResponseHeader('Date'));
+					//获取所有响应头
+					console.log(xhr.getAllResponseHeaders());
+				}
+			}
+			//调用open
+			xhr.open('get', 'http://localhost:3000/get_persons')
+			//发送请求
+			xhr.send()
+		}
+	</script>
+
+</body>
+
+</html>

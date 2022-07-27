@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>axios的基本使用</title>
+</head>
+<body>
+	<script type="text/javascript" src="./axios.min.js"></script>
+	<button id="btn1">获取所有人信息</button><br><br>
+	<button id="btn2">根据id获取一个人信息</button><br><br>
+	<button id="btn3">添加一个人</button><br><br>
+	<button id="btn4">修改一个人</button><br><br>
+	<button id="btn5">删除一个人</button>
+
+	<script type="text/javascript" >
+		let btn1 = document.getElementById('btn1')
+		let btn2 = document.getElementById('btn2')
+		let btn3 = document.getElementById('btn3')
+		let btn4 = document.getElementById('btn4')
+		let btn5 = document.getElementById('btn5')
+
+		//所有用axios发送的请求，请求的基本路径均为：http://localhost:3000
+		axios.defaults.baseURL = 'http://localhost:3000'
+
+		btn1.onclick = ()=>{
+			//完整版写法：
+			/* axios({
+				url:'/get_persons',
+				method:'get',
+			}).then(
+				//response是经过axios包装后的一个对象，服务器真正返回的数据在：response.data
+				response => {console.log('成功了',response.data);},
+				error => {console.log('失败了',error);}
+			) */
+			//精简写法：
+			axios.get('/get_persons').then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			)
+		}
+
+		btn2.onclick = ()=>{
+			//完整写法：
+			/* axios({
+				url:'/get_person_byid',
+				method:'get',
+				params:{id:1} //params属性是携带query参数！！！！
+			}).then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			) */
+			//精简写法：
+			axios.get('/get_person_byid',{params:{id:1}}).then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			)
+		}
+		
+		btn3.onclick = ()=>{
+			//完整写法
+			/* axios({
+				url:'/person',
+				method:'post',
+				//data:{name:'lisi',age:19} //data携带请求体参数，而且默认采用json编码
+				data:'name=peiqi&age=10' //该行写法就是携带urlencoded编码参数
+			}).then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			) */
+			//精简的写法
+			axios.post('/person',{name:'海峰',age:30}).then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			)
+		}
+		
+		btn4.onclick = ()=>{
+			//完整写法
+			/* axios({
+				url:'/person',
+				method:'put',
+				data:{id:1,name:'抽烟的渊哥',age:70},
+			}).then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			) */
+			//精简写法
+			axios.put('/person',{id:1,name:'抽烟的渊哥',age:70}).then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			)
+		}
+		
+		btn5.onclick = ()=>{
+			axios({
+				url:'/person/1',
+				method:'delete'
+			}).then(
+				response => {console.log(response.data);},
+				error => {console.log(error);}
+			)
+		}
+	</script>
+</body>
+</html>

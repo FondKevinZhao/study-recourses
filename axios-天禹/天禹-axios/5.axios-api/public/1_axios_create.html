@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./js/axios.min.js"></script>
+
+	<button id="btn1">点我请求3000的服务器获取数据</button><br><br>
+	<button id="btn2">点我请求5000的服务器获取数据</button><br><br>
+
+	 <!-- 
+		axios.create(config)
+				1. 根据指定配置创建一个新的axios, 也就是每个新axios都有自己的配置
+				2. 新axios只是没有【取消请求】和【批量发请求】的方法, 其它所有语法都是一致的
+				3. 为什么要设计这个语法?
+					需求: 项目中有部分接口的配置与其他的不太一样
+	-->
+	
+<script type="text/javascript">
+
+let btn1 = document.getElementById('btn1')
+let btn2 = document.getElementById('btn2')
+//设置请求的基本路径
+axios.default.baseURL = 'http://localhost:3000'
+
+const axios2 = axios.create({
+  baseURL: 'http://localhost:5000',
+  timeout: 1000, //超时时间
+});
+
+btn1.onclick = ()=>{
+	console.log(axios.all);
+	axios.get('/get_persons').then(
+		response => {console.log(response.data);},
+		error => {console.log(error.message);}
+	)
+}
+
+btn2.onclick = ()=>{
+	console.log(axios2.all);
+	axios2.get('/get_news').then(
+		response => {console.log(response.data);},
+		error => {console.log(error.message);}
+	)
+}
+
+
+</script>
+</body>
+</html>
