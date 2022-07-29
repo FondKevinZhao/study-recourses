@@ -1,0 +1,20 @@
+{
+  "name": "node_0719",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Tianyu5177/0719_Node.git",
+  "author": "tianyu <tianyu5177@sina.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.1.2",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.7.7",
+    "sha1": "^1.1.1",
+    "uniq": "^1.0.1"
+  }
+}
