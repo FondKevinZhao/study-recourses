@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>pc端视口</title>
+		<style>
+			body{
+				height: 9000px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" >
+			console.log('最干净的显示区域',document.documentElement.clientWidth);//常用
+			console.log('最干净的显示区域+滚动条',window.innerWidth);
+			console.log('最干净的显示区域+滚动条+浏览器边框',window.outerWidth);
+			console.log('与浏览器无关，当前设备显示分辨率横向的值',screen.width);
+		</script>
+	</body>
+</html>

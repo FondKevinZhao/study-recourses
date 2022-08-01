@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>视觉视口</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#demo{
+				font-size: 40px;
+				background-color: skyblue;
+				width: 980px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script type="text/javascript" >
+			const demo = document.getElementById('demo')
+			demo.innerHTML = '布局视口宽度：'+ document.documentElement.clientWidth + '<br/>'
+			demo.innerHTML += '视觉视口宽度：'+ window.innerWidth
+		</script>
+	</body>
+</html>

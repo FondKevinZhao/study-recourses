@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>viewport说明</title>
+		<!-- <meta name="viewport" content="width=device-width"> -->
+		<!-- <meta name="viewport" content="width=device-width initial-scale=1.0"> -->
+		<!-- <meta name="viewport" content="maximum-scale=2"> -->
+		<!-- <meta name="viewport" content="user-scalable=no"> -->
+		<!-- <meta name="viewport" content="viewport-fit=cover"> -->
+		<meta name="viewport" content=" width=device-width initial-scale=1.0 maximum-scale=1 minimum-scale=1 user-scalable=no viewport-fit=cover">
+
+		<style>
+			#info{
+				font-size: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="info"></div>
+		<script type="text/javascript" >
+			const info = document.getElementById('info')
+			info.innerHTML = '布局视口宽度：'+ document.documentElement.clientWidth + '<br/>'
+			info.innerHTML += '视觉视口宽度：'+ window.innerWidth
+
+			//在移动端，onresize监测的是布局视口的变化
+			setInterval(()=>{
+				info.innerHTML = '布局视口宽度：'+ document.documentElement.clientWidth + '<br/>'
+				info.innerHTML += '视觉视口宽度：'+ window.innerWidth
+			},200)
+		</script>
+	</body>
+</html>

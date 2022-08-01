@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>移动端缩放</title>
+		<style>
+			img{
+				width: 200px;
+				height: 150px;
+			}
+			#info{
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="../imgs/1.jpg" alt="">
+			<img src="../imgs/2.jpg" alt="">
+			<img src="../imgs/3.jpg" alt="">
+			<img src="../imgs/4.jpg" alt="">
+		</div>
+		<div id="info"></div>
+		<script type="text/javascript" >
+			const info = document.getElementById('info')
+			info.innerHTML = '布局视口宽度：'+ document.documentElement.clientWidth + '<br/>'
+			info.innerHTML += '视觉视口宽度：'+ window.innerWidth
+
+			//在移动端，onresize监测的是布局视口的变化
+			setInterval(()=>{
+				info.innerHTML = '布局视口宽度：'+ document.documentElement.clientWidth + '<br/>'
+				info.innerHTML += '视觉视口宽度：'+ window.innerWidth
+			},200)
+		</script>
+	</body>
+</html>

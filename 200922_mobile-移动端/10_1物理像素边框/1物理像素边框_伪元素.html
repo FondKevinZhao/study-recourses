@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>1物理像素边框</title>
+		<meta name="viewport" content=" width=device-width initial-scale=1.0 maximum-scale=1 minimum-scale=1 user-scalable=no viewport-fit=cover">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#demo{
+				position: relative;
+				width: 3.45rem;
+				height: 1.5rem;
+				background-color: pink;
+				margin: 0 auto;
+				margin-top: 0.15rem;
+			}
+			#demo::after{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				content: '';
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: black;
+			}
+			@media screen and (-webkit-min-device-pixel-ratio:2){
+				#demo::after{
+					transform:scaleY(0.5);
+				}
+			}
+			@media screen and (-webkit-min-device-pixel-ratio:3){
+				#demo::after{
+					transform:scaleY(0.333);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script type="text/javascript" >
+			function adapter (){
+					//获取手机横向的设备独立像素
+					const dip = document.documentElement.clientWidth
+					//计算根字体大小(100是我们自己指定的，375是设计稿宽度)
+					const rootFontSize = (dip * 100)/375
+					//设置根字体
+					document.documentElement.style.fontSize = rootFontSize + 'px'
+				}
+				adapter()
+
+				window.onresize = adapter
+		</script>
+	</body>
+</html>

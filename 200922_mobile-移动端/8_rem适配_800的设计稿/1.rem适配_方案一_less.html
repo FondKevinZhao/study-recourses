@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>rem适配方案一</title>
+		<meta name="viewport" content=" width=device-width initial-scale=1.0 maximum-scale=1 minimum-scale=1 user-scalable=no viewport-fit=cover">
+		<link rel="stylesheet" href="./css1/index.css">
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script type="text/javascript" >
+			function adapter (){
+				//获取手机横向的设备独立像素
+				const dip = document.documentElement.clientWidth
+				//计算根字体大小(100是我们自己指定的，800是设计稿宽度)
+				const rootFontSize = (dip * 100)/800
+				//设置根字体
+				document.documentElement.style.fontSize = rootFontSize + 'px'
+			}
+			adapter()
+
+			window.onresize = adapter
+		</script>
+	</body>
+</html>

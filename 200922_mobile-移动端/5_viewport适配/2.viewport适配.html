@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>viewport适配</title>
+		<meta name="viewport" content=" width=375">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+			#demo{
+				width: 345px;
+				height: 150px;
+				background-color: #8FAADC;
+				margin:0 auto;
+				margin-top: 15px;
+				border:1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+		</div>
+		<script type="text/javascript" >
+			console.log('布局视口宽度：',document.documentElement.clientWidth)
+		</script>
+	</body>
+</html>

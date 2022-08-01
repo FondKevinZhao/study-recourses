@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>移动端事件</title>
+		<meta name="viewport" content=" width=device-width initial-scale=1.0 maximum-scale=1 minimum-scale=1 user-scalable=no viewport-fit=cover">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#demo{
+				width: 100%;
+				height: 300px;
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script type="text/javascript" >
+			const demo = document.getElementById('demo')
+
+			demo.addEventListener('touchstart',()=>{
+				console.log('你开始摸我了')
+			})
+
+			demo.addEventListener('touchmove',()=>{
+				console.log('你在我身上移动呢')
+			})
+
+			demo.addEventListener('touchend',()=>{
+				console.log('你手指从我身上拿走了')
+			})
+
+			demo.addEventListener('touchcancel',()=>{
+				console.log('你触摸的时候，被打断了')
+			})
+
+			// setTimeout(()=>{
+			// 	alert('电量不足')
+			// },3000)
+		</script>
+	</body>
+</html>

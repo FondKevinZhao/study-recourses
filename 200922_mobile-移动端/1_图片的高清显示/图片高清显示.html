@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>图片的高清显示</title>
+		<style>
+			.logo{
+				width: 200px;
+				height: 200px;
+			}
+			@media screen and (-webkit-min-device-pixel-ratio:2){
+				.logo{
+					content: url(../imgs/logo@2x.png);
+				}
+			}
+			@media screen and (-webkit-min-device-pixel-ratio:3){
+				.logo{
+					content: url(../imgs/logo@3x.png);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<img src="../imgs/logo.png" class="logo" alt="logo">
+	</body>
+</html>

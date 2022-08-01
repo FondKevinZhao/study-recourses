@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width">
+		<title>理想视口</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#demo{
+				width: 200px;
+				height: 200px;
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">123</div>
+		<script type="text/javascript" >
+			console.log('该设备的布局视口宽度为',document.documentElement.clientWidth)
+			console.log('该设备的视觉视口宽度为',window.innerWidth)
+			const demo = document.getElementById('demo')
+			demo.innerHTML = '布局视口宽：'+ document.documentElement.clientWidth + '<br/>'
+			demo.innerHTML += '视觉视口宽：'+ window.innerWidth
+		</script>
+	</body>
+</html>

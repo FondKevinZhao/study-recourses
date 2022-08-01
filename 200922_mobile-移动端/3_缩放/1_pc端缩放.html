@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>pc端缩放</title>
+		<style>
+			img{
+				width: 200px;
+				height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="../imgs/1.jpg" alt="">
+			<img src="../imgs/2.jpg" alt="">
+			<img src="../imgs/3.jpg" alt="">
+			<img src="../imgs/4.jpg" alt="">
+		</div>
+		<script type="text/javascript" >
+			console.log('pc端视口为：',document.documentElement.clientWidth)
+			//在pc端，onresize监测的是视口的变化(初始包含块)
+			window.onresize = ()=>{
+				console.log('pc端视口为：',document.documentElement.clientWidth)
+			}
+		</script>
+	</body>
+</html>

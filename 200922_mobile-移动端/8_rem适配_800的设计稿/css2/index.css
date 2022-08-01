@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#demo {
+  width: 9.5rem;
+  height: 4.1875rem;
+  background-color: skyblue;
+  margin: 0 auto;
+  margin-top: 0.25rem;
+}
